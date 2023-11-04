@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapiBrownies - Inicio</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="../semantic/dist/semantic.min.js"></script>
+
+
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #F4F3EE;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+
+    <div class="ui middle aligned center aligned grid container">
+        <div class="column">
+            <h2 class="ui teal image header">
+                <div class="content">
+                    Registro de Usuario
+                </div>
+            </h2>
+            <form class="ui large form">
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <label style="">Nombre de Usuario</label>
+                        <input type="text" name="usuario" placeholder="Nombre de Usuario" required>
+                    </div>
+                    <div class="field">
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="email" placeholder="Correo Electrónico" required>
+                    </div>
+                    <div class="field">
+                        <label>Contraseña</label>
+                        <input type="password" name="contrasena" placeholder="Contraseña" required>
+                    </div>
+                    <div class="field">
+                        <label>Confirmar Contraseña</label>
+                        <input type="password" name="confirmar_contrasena" placeholder="Reescribir Contraseña" required>
+                    </div>
+                    <button class="ui fluid large teal submit button" type="submit">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
