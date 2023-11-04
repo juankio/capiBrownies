@@ -28,7 +28,7 @@
                     Iniciar Sesion
                 </div>
             </h2>
-            <form class="ui large form">
+            <form class="ui large form" method="POST" action="/">
                 <div class="ui stacked segment">
                     <div class="field">
                         <div class="ui left labeled input">
@@ -49,8 +49,10 @@
                             </div>
                         </div>
                     </div>
-                    <button class="ui fluid large teal submit button" type="submit"><a style="color: white;"
-                            href="index.html">Enviar</a></button>
+                    <button class="ui fluid large teal submit button" type="submit">
+                        Enviar
+                    </button>
+
                     <div class="">
                         <br>
                         <span class="ui inverted blue text"><a href="registro.html"
@@ -76,7 +78,34 @@
                     password.type = "password";
                 }
             });
+
+            $("form").submit(function (e) {
+                e.preventDefault();
+
+                const usuario = $("#id").val();
+                const contrasena = $("#contra").val();
+
+                // Serializa los datos del formulario como JSON
+                const data = {
+                    usuario,
+                    contrasena
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/",
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success: function (response) {
+                        window.location.href = "/index.html";
+                    },
+                    error: function (error) {
+                        console.log('error')
+                    }
+                });
+            });
         });
+
     </script>
 </body>
 
