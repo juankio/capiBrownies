@@ -9,6 +9,13 @@
     <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
     <script src="../../semantic/dist/semantic.min.js"></script>
 </head>
+<style>
+    .centered-content {
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+    }
+</style>
 
 <body style="background-color: #F4F3EE;">
     <div style="background-color: #F4F3EE;">
@@ -38,438 +45,165 @@
         </div>
 
         <!-- Productos -->
+
         <div class="ui four column doubling stackable grid container">
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Regular</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd1" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="55.00">Individual</div>
-                                            <div class="item" data-value="100.00">3 Personas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price1">$55.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Nuez</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd2" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="45.00">Individual</div>
-                                            <div class="item" data-value="145.00">3 Personas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price2">$45.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Nutella</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd3" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="45.00">Individual</div>
-                                            <div class="item" data-value="100.00">3 Personas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price3">$45.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Coco</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd4" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="45.00">Individual</div>
-                                            <div class="item" data-value="100.00">3 Personas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price4">$45.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui four column doubling stackable grid container">
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Zebra</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd5" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="45.00">Individual</div>
-                                            <div class="item" data-value="100.00">3 Personas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price5">$45.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Oreo</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd6" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="50.00">Individual</div>
-                                            <div class="item" data-value="100.00">3 Personas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price6">$50.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Cheescake</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd7" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="50.00">Individual</div>
-                                            <div class="item" data-value="100.00">3 Personas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price7">$50.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="ui special cards">
-                    <div class="card">
-                        <div class="blurring dimmable image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <div class="ui inverted button"><i class="shopping cart icon"
-                                                style="visibility: visible;"></i>Agregar al carrito</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="https://fomantic-ui.com/images/wireframe/image.png">
-                        </div>
-                        <div class="content">
-                            <a class="header" href="#" style="margin-bottom: 10px;">Brookie</a>
-                            <div class="ui form">
-                                <div class="field">
-                                    <div class="ui selection dropdown" id="dd8" style="margin-bottom: 10px;">
-                                        <input type="hidden" name="tamaño">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Tamaño</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="55.00">Individual</div>
-                                            <div class="item" data-value="100.00">3 Personas</div>>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p id="price8">$55.00</p>
-                        </div>
-                        <div class="extra content">
-                            <a href="#"><button class="ui secondary button">
-                                    Comprar
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Los productos se cargarán aquí desde JavaScript -->
         </div>
         <br>
 
-        <!-- Footer -->
-        <div class="ui inverted vertical footer segment">
-            <div class="ui container">
-                <div class="ui stackable inverted divided equal height stackable grid">
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Contactos</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">Email</a>
-                            <a href="#" class="item">1 81 1299 7559</a>
-                            <a href="#" class="item">Link 3</a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Footer Section 2</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">Link 4</a>
-                            <a href="#" class="item">Link 5</a>
-                            <a href="#" class="item">Link 6</a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Footer Section 3</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">Link 7</a>
-                            <a href="#" class="item">Link 8</a>
-                            <a href="#" class="item">Link 9</a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Redes Sociales</h4>
-                        <div class="ui inverted link list">
-                            <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
-                                <i class="tiktok icon"></i> Capi_Brownies
-                            </a>
-                            <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
-                                <i class="instagram icon"></i> CapiBrownies
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <p style="text-align: center;">CapiBrownies &copy; 2023</p>
-            </div>
-        </div>
+
     </div>
 
-
-    <style>
-        .centered-content {
-            display: flex;
-            align-items: center;
-            margin-right: 40px;
-        }
-    </style>
-
     <script>
-        $(document).ready(function () {
-            $('#hamburger').click(function () {
-                $('.ui.sidebar').sidebar('toggle');
+
+        // Define un array de productos directamente en el script
+        const productos = [
+            {
+                nombre: "Regular",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 55.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+            {
+                nombre: "Nuez",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 45.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+            {
+                nombre: "Nutella",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 45.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+            {
+                nombre: "Coco",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 45.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+            {
+                nombre: "Zebra",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 45.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+            {
+                nombre: "Oreo",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 50.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+            {
+                nombre: "Cheescake",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 50.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+            {
+                nombre: "Brookie",
+                imagen: "imagen1.jpg",
+                tamanos: [
+                    { nombre: "Invidual", precio: 55.00 },
+                    { nombre: "3 Personas", precio: 100.00 }
+                ]
+            },
+
+        ];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const productosContainer = document.querySelector('.ui.grid.container');
+
+            productos.forEach((producto, index) => {
+                const card = document.createElement('div');
+                card.className = 'column';
+                card.innerHTML = `
+                    <div class="ui special cards">
+                        <div class="card">
+                            <div class="blurring dimmable image">
+                                <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        <div class="ui inverted button" id="${index}"><i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito</div>
+                    </div>
+                </div>
+            </div>
+            <img src="${producto.imagen}">
+                            </div>
+                            <div class="content">
+                                <a class="header" href="#" style="margin-bottom: 10px;">${producto.nombre}</a>
+                                <div class="ui form">
+                                    <div class="field">
+                        <div class="ui selection dropdown" style="margin-bottom: 10px;">
+                        <input type="hidden" name="tamaño">
+                        <i class="dropdown icon"></i>
+                            <div class="default text">Tamaño</div>
+                                <div class="menu">
+                                ${producto.tamanos.map(tamano => `
+                                    <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
+                                `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                                </div>
+                                <p id="price${index}">$${producto.tamanos[0].precio}</p>
+                            </div>
+                            <div class="extra content">
+                                <button class="ui secondary button compra"
+                                    <a href="#" style="color: #F4F3EE;">Comprar</a>
+                                </button>
+                        </div>
+                    </div>
+                `;
+
+                productosContainer.appendChild(card);
+                const botonCompra = card.querySelector('.compra');
+                botonCompra.addEventListener("click", function () {
+                    alert(`Has comprado el producto ${producto.nombre}+${producto.tamanos[0].precio}`);
+                });
             });
-        });
 
-        $('.special.cards .image').dimmer({
-            on: 'ontouchstart' in document.documentElement ? 'click' : 'hover'
-        });
+            // Agrega el controlador de eventos para el botón de compra aquí
+            // ...
+            $(document).ready(function () {
+                $('#hamburger').click(function () {
+                    $('.ui.sidebar').sidebar('toggle');
+                });
+            });
 
-        $('.ui.rating').rating();
+            $('.special.cards .image').dimmer({
+                on: 'ontouchstart' in document.documentElement ? 'click' : 'hover'
+            });
 
-        $('.selection.dropdown')
-            .dropdown()
-            ;
+            $('.ui.rating').rating();
 
-        $('#dd1').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price1').text('$' + value);
-            }
-        });
-        $('#dd2').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price2').text('$' + value);
-            }
-        });
-        $('#dd3').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price3').text('$' + value);
-            }
-        });
-        $('#dd4').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price4').text('$' + value);
-            }
-        });
-        $('#dd5').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price5').text('$' + value);
-            }
-        });
-        $('#dd6').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price6').text('$' + value);
-            }
-        });
-        $('#dd7').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price7').text('$' + value);
-            }
-        });
-        $('#dd8').dropdown({
-            onChange: function (value, text, $selectedItem) {
-                $('#price8').text('$' + value);
-            }
+            $('.selection.dropdown')
+                .dropdown()
+                ;
+
+            $('#dd1').dropdown({
+                onChange: function (value, text, $selectedItem) {
+                    $('#price1').text('$' + value);
+                }
+            });
+
+
         });
     </script>
-
 </body>
 
 </html>
