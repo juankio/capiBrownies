@@ -49,18 +49,26 @@
         <div class="ui four column doubling stackable grid container">
             <!-- Los productos se cargarán aquí desde JavaScript -->
         </div>
-        <br>
-
 
     </div>
 
+
+    <div class="ui modal message warning" id="alerta" style="display: none;">
+        <i class="close icon" onclick="cerrarAlerta()"></i>
+        <div class="header">
+            <i class="exclamation triangle icon"></i> ¡Error!
+        </div>
+        <div class="content">
+            <p id="alertaMessage" class="ui header center aligned"></p>
+        </div>
+    </div>
     <script>
 
         // Define un array de productos directamente en el script
         const productos = [
             {
                 nombre: "Regular",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 55.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -68,7 +76,7 @@
             },
             {
                 nombre: "Nuez",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 45.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -76,7 +84,7 @@
             },
             {
                 nombre: "Nutella",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 45.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -84,7 +92,7 @@
             },
             {
                 nombre: "Coco",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 45.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -92,7 +100,7 @@
             },
             {
                 nombre: "Zebra",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 45.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -100,7 +108,7 @@
             },
             {
                 nombre: "Oreo",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 50.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -108,7 +116,7 @@
             },
             {
                 nombre: "Cheescake",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 50.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -116,7 +124,7 @@
             },
             {
                 nombre: "Brookie",
-                imagen: "imagen1.jpg",
+                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
                 tamanos: [
                     { nombre: "Invidual", precio: 55.00 },
                     { nombre: "3 Personas", precio: 100.00 }
@@ -138,7 +146,7 @@
                                 <div class="ui dimmer">
                 <div class="content">
                     <div class="center">
-                        <div class="ui inverted button" id="${index}"><i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito</div>
+                        <div class="ui inverted button" id="compra${index}"><i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito</div>
                     </div>
                 </div>
             </div>
@@ -148,18 +156,18 @@
                                 <a class="header" href="#" style="margin-bottom: 10px;">${producto.nombre}</a>
                                 <div class="ui form">
                                     <div class="field">
-                        <div class="ui selection dropdown" style="margin-bottom: 10px;">
-                        <input type="hidden" name="tamaño">
-                        <i class="dropdown icon"></i>
-                            <div class="default text">Tamaño</div>
-                                <div class="menu">
-                                ${producto.tamanos.map(tamano => `
-                                    <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
-                                `).join('')}
+                        <div class="ui selection dropdown" id="ds${index}" style="margin-bottom: 10px;">
+                            <input type="hidden" name="tamaño">
+                            <i class="dropdown icon"></i>
+                                <div class="default text">Tamaño</div>
+                                    <div class="menu" id="tamano${index}">
+                                    ${producto.tamanos.map(tamano => `
+                                        <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
+                                    `).join('')}
+                                    </div>
                                 </div>
-                            </div>
                         </div>
-                                </div>
+                                <div>
                                 <p id="price${index}">$${producto.tamanos[0].precio}</p>
                             </div>
                             <div class="extra content">
@@ -171,9 +179,14 @@
                 `;
 
                 productosContainer.appendChild(card);
+
                 const botonCompra = card.querySelector('.compra');
+                const priceParagraph = card.querySelector(`#price${index}`);
+                const tamano = card.querySelector(`#tamano${index}`);
+
+
                 botonCompra.addEventListener("click", function () {
-                    alert(`Has comprado el producto ${producto.nombre}+${producto.tamanos[0].precio}`);
+                    abrirAlerta(`Has comprado el producto ${producto.nombre} +${tamano.textContent}+${priceParagraph.textContent} `);
                 });
             });
 
@@ -192,17 +205,27 @@
             $('.ui.rating').rating();
 
             $('.selection.dropdown')
-                .dropdown()
-                ;
-
-            $('#dd1').dropdown({
-                onChange: function (value, text, $selectedItem) {
-                    $('#price1').text('$' + value);
-                }
+                .dropdown();
+            productos.forEach((producto, index) => {
+                $(`#ds${index}`).dropdown({
+                    onChange: function (value, text, $selectedItem) {
+                        $(`#price${index}`).text('$' + value);
+                    }
+                });
             });
 
 
+
         });
+        // funciones para alerta 
+        function abrirAlerta(mensaje) {
+            document.getElementById("alertaMessage").textContent = mensaje;
+            $('#alerta').modal('show');
+        }
+
+        function cerrarAlerta() {
+            $('#alerta').modal('hide');
+        }
     </script>
 </body>
 

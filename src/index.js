@@ -1,10 +1,7 @@
 const express = require('express');
-// const mongoose = require('mongoose');
 require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
-// const userRoute = require("./routes/user")
-
 const app = express();
 const port= process.env.PORT ||9000;
 
@@ -36,10 +33,4 @@ app.post('/', (req, res) => {
       res.status(401).json({ mensaje: 'Credenciales incorrectas' });
   }
 });
-
-//mongoose  base de datos
-// mongoose.connect(process.env.MONGODB_1)
-// .then(() => console.log('contetado ala base'))
-// .catch((error)=>console.error(error));
-
 app.listen(port,()=> console.log('server prendido'))

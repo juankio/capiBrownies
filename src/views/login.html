@@ -21,51 +21,59 @@
 </style>
 
 <body>
-    <div class="ui middle aligned center aligned grid padded segment containers">
-        <div class="column">
-            <h2 class="ui teal image header">
-                <div class="content">
-                    Iniciar Sesion
-                </div>
-            </h2>
-            <form class="ui large form" method="POST" action="/">
-                <div class="ui stacked segment">
-                    <div class="field">
-                        <div class="ui left labeled input">
-                            <div class="ui label">
-                                <i class="user icon" style="margin-right: 0;"></i>
-                            </div>
-                            <input type="email" name="usuario" id="id" placeholder="Correo" required>
-                        </div>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; ">
+        <div class="ui raised horizontal segments">
+            <div class="ui segment column" style="max-width: 400px;">
+                <h2 class="ui brown header">
+                    <div class="content">
+                        Iniciar sesión
                     </div>
-                    <div class="field">
-                        <div class="ui left labeled input">
-                            <div class="ui label">
-                                <i class="lock icon" style="margin-right: 0;"></i>
-                            </div>
-                            <input type="password" name="contrasena" id="contra" placeholder="Contrasena" required>
-                            <div class="ui label">
-                                <i class="low vision icon link" id="mostrarContra" style="margin-right: 0;"></i>
+                </h2>
+                <form class="ui form" method="POST" action="/">
+                    <div class="ui segment">
+                        <div class="field">
+                            <div class="ui left labeled input">
+                                <div class="ui label">
+                                    <i class="ui user icon"></i>
+                                </div>
+                                <input type="email" name="usuario" id="id" placeholder="Correo" required>
                             </div>
                         </div>
+                        <div class="field">
+                            <div class="ui left labeled input">
+                                <div class="ui label">
+                                    <i class="ui lock icon"></i>
+                                </div>
+                                <input type="password" name="contrasena" id="contra" placeholder="Contraseña" required>
+                                <div class="ui label">
+                                    <i class="ui low vision icon link" id="mostrarContra"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="ui brown fluid teal submit button" type="submit">Enviar</button>
                     </div>
-                    <button class="ui fluid large teal submit button" type="submit">
-                        Enviar
-                    </button>
-
-                    <div class="">
-                        <br>
-                        <span class="ui inverted blue text"><a href="registro.html"
-                                style="color: black; text-decoration: underline;">crear cuenta</a></span>
-                    </div>
-                </div>
-
-                <div class="ui error message">
-                </div>
-
-            </form>
+                </form>
+                <p></p>
+                <a class="ui brown bottom ribbon label" href="/registro.html">Crear cuenta</a>
+            </div>
         </div>
     </div>
+
+
+
+
+    <!-- alerta -->
+    <div class="ui modal message warning" id="alerta" style="display: none;">
+        <i class="close icon" onclick="cerrarAlerta()"></i>
+        <div class="header">
+            <i class="exclamation triangle icon"></i> ¡Error!
+        </div>
+        <div class="content">
+            <p id="alertaMessage" class="ui header center aligned"></p>
+        </div>
+    </div>
+
+
     <script>
         $(document).ready(function () {
             const mostrarContra = document.getElementById("mostrarContra");
@@ -100,11 +108,20 @@
                         window.location.href = "/index.html";
                     },
                     error: function (error) {
-                        console.log('error')
+                        abrirAlerta("Credenciales incorrectas");
                     }
                 });
             });
         });
+        // funciones para alerta 
+        function abrirAlerta(mensaje) {
+            document.getElementById("alertaMessage").textContent = mensaje;
+            $('#alerta').modal('show');
+        }
+
+        function cerrarAlerta() {
+            $('#alerta').modal('hide');
+        }
 
     </script>
 </body>
