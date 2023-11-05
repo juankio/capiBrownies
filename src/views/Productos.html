@@ -26,29 +26,43 @@
                 </button>
                 <img class="ui centered small image" style="height: 70px; object-fit: cover;"
                     src="https://fomantic-ui.com/images/wireframe/image.png" alt="Logo CapiBrownies">
-                <div class="ui inverted icon buttons" style="position: absolute; right: 10px;">
-                    <a class="ui inverted button" href="#">
-                        <i class="shopping cart icon"></i>
-                    </a>
-                    <a class="ui inverted button" href="#">
-                        <i class="user icon"></i>
-                    </a>
+                <div class="ui inverted icon buttons" style="position: absolute; right: 120px;">
+                    <button class="ui inverted button" id="miBoton"><i class="shopping cart icon"></i></button>
+                    <div class="ui flowing popup transition hidden">
+                        <div class="ui three column divided center aligned grid">
+                            <div class="column">
+                                <div class="ui raised segment" style="max-height: 100%; right: 145px; width: 400px;">
+                                    <h2 class="ui header">Carrito de Compras</h2>
+                                    <ul id="lista-carrito" class="ui list">
+                                        <!-- Aquí se mostrarán los productos agregados -->
+                                    </ul>
+                                    <p>Total: <span id="total" class="ui header">$0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
+                <a class="ui inverted button" href="#">
+                    <i class="user icon"></i>
+                </a>
             </div>
         </div>
+    </div>
 
-        <!-- Sidebar -->
-        <div class="ui inverted vertical sidebar menu">
-            <a class="item" href="index.html">Inicio</a>
-            <a class="active item" href="Productos.html">Productos</a>
-            <a class="item" href="#">Conócenos</a>
-        </div>
+    <!-- Sidebar -->
+    <div class="ui inverted vertical sidebar menu">
+        <a class="item" href="index.html">Inicio</a>
+        <a class="active item" href="Productos.html">Productos</a>
+        <a class="item" href="#">Conócenos</a>
+    </div>
 
-        <!-- Productos -->
+    <!-- Productos -->
 
-        <div class="ui four column doubling stackable grid container">
-            <!-- Los productos se cargarán aquí desde JavaScript -->
-        </div>
+    <div class="ui four column doubling stackable grid container" style=" margin-top: 10px; ">
+        <!-- Los productos se cargarán aquí desde JavaScript -->
+    </div>
 
     </div>
 
@@ -62,171 +76,10 @@
             <p id="alertaMessage" class="ui header center aligned"></p>
         </div>
     </div>
-    <script>
 
-        // Define un array de productos directamente en el script
-        const productos = [
-            {
-                nombre: "Regular",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 55.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
-            {
-                nombre: "Nuez",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 45.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
-            {
-                nombre: "Nutella",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 45.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
-            {
-                nombre: "Coco",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 45.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
-            {
-                nombre: "Zebra",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 45.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
-            {
-                nombre: "Oreo",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 50.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
-            {
-                nombre: "Cheescake",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 50.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
-            {
-                nombre: "Brookie",
-                imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
-                tamanos: [
-                    { nombre: "Invidual", precio: 55.00 },
-                    { nombre: "3 Personas", precio: 100.00 }
-                ]
-            },
+    <script src="/productos.js"></script>
+    <!-- <script src="/carrito.js"></script> -->
 
-        ];
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const productosContainer = document.querySelector('.ui.grid.container');
-
-            productos.forEach((producto, index) => {
-                const card = document.createElement('div');
-                card.className = 'column';
-                card.innerHTML = `
-                    <div class="ui special cards">
-                        <div class="card">
-                            <div class="blurring dimmable image">
-                                <div class="ui dimmer">
-                <div class="content">
-                    <div class="center">
-                        <div class="ui inverted button" id="compra${index}"><i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito</div>
-                    </div>
-                </div>
-            </div>
-            <img src="${producto.imagen}">
-                            </div>
-                            <div class="content">
-                                <a class="header" href="#" style="margin-bottom: 10px;">${producto.nombre}</a>
-                                <div class="ui form">
-                                    <div class="field">
-                        <div class="ui selection dropdown" id="ds${index}" style="margin-bottom: 10px;">
-                            <input type="hidden" name="tamaño">
-                            <i class="dropdown icon"></i>
-                                <div class="default text">Tamaño</div>
-                                    <div class="menu" id="tamano${index}">
-                                    ${producto.tamanos.map(tamano => `
-                                        <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
-                                    `).join('')}
-                                    </div>
-                                </div>
-                        </div>
-                                <div>
-                                <p id="price${index}">$${producto.tamanos[0].precio}</p>
-                            </div>
-                            <div class="extra content">
-                                <button class="ui secondary button compra"
-                                    <a href="#" style="color: #F4F3EE;">Comprar</a>
-                                </button>
-                        </div>
-                    </div>
-                `;
-
-                productosContainer.appendChild(card);
-
-                const botonCompra = card.querySelector('.compra');
-                const priceParagraph = card.querySelector(`#price${index}`);
-                const tamano = card.querySelector(`#tamano${index}`);
-
-
-                botonCompra.addEventListener("click", function () {
-                    abrirAlerta(`Has comprado el producto ${producto.nombre} +${tamano.textContent}+${priceParagraph.textContent} `);
-                });
-            });
-
-            // Agrega el controlador de eventos para el botón de compra aquí
-            // ...
-            $(document).ready(function () {
-                $('#hamburger').click(function () {
-                    $('.ui.sidebar').sidebar('toggle');
-                });
-            });
-
-            $('.special.cards .image').dimmer({
-                on: 'ontouchstart' in document.documentElement ? 'click' : 'hover'
-            });
-
-            $('.ui.rating').rating();
-
-            $('.selection.dropdown')
-                .dropdown();
-            productos.forEach((producto, index) => {
-                $(`#ds${index}`).dropdown({
-                    onChange: function (value, text, $selectedItem) {
-                        $(`#price${index}`).text('$' + value);
-                    }
-                });
-            });
-
-
-
-        });
-        // funciones para alerta 
-        function abrirAlerta(mensaje) {
-            document.getElementById("alertaMessage").textContent = mensaje;
-            $('#alerta').modal('show');
-        }
-
-        function cerrarAlerta() {
-            $('#alerta').modal('hide');
-        }
-    </script>
 </body>
 
 </html>

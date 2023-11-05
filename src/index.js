@@ -7,6 +7,9 @@ const port= process.env.PORT ||9000;
 
 
 app.use('/semantic', express.static(path.join(__dirname, '../semantic')));
+app.use('/src', express.static(path.join(__dirname, '../src')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
 app.use(express.json());
 
 //ruta para paginas
@@ -22,6 +25,9 @@ app.get('/registro.html', (req, res) => {
 });
 app.get('/productos.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'Productos.html'));
+});
+app.get('/productos.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'scripts', 'productos.js'));
 });
 //POST
 
