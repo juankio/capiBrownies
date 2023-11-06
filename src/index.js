@@ -29,6 +29,20 @@ app.get('/productos.html', (req, res) => {
 app.get('/productos.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'scripts', 'productos.js'));
 });
+
+//fotos
+app.get('/brwnie.jpg', (req, res) => {
+  res.sendFile(path.join(__dirname, 'img', 'brwnie.jpg'));
+});
+app.get('/galleta.jpg', (req, res) => {
+  res.sendFile(path.join(__dirname, 'img', 'galleta.jpg'));
+});
+app.get('/nutella.jpg', (req, res) => {
+  res.sendFile(path.join(__dirname, 'img', 'nutella2.jpg'));
+});
+app.get('/logo.jpg', (req, res) => {
+  res.sendFile(path.join(__dirname, 'img', 'logo2.png'));
+});
 //POST
 
 app.post('/', (req, res) => {

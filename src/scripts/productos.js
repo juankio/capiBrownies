@@ -4,7 +4,7 @@
 const productos = [
     {
         nombre: "Regular",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -12,7 +12,7 @@ const productos = [
     },
     {
         nombre: "Nuez",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/galleta.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -20,7 +20,7 @@ const productos = [
     },
     {
         nombre: "Nutella",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/nutella.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -28,7 +28,7 @@ const productos = [
     },
     {
         nombre: "Coco",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -36,7 +36,7 @@ const productos = [
     },
     {
         nombre: "Zebra",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -44,7 +44,7 @@ const productos = [
     },
     {
         nombre: "Oreo",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -52,7 +52,7 @@ const productos = [
     },
     {
         nombre: "Cheescake",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -60,7 +60,7 @@ const productos = [
     },
     {
         nombre: "Brookie",
-        imagen: "https://imgs.search.brave.com/NvKGrBBdG4rGeB41i9kLW55HXyeQNvseRSBaQ2dCUoQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/NzcyMzczOS9lcy9m/b3RvL3JldHJhdG8t/ZGUtZXN0dWRpby1k/ZS11bmEtam92ZW4t/bGF0aW5hLXNvbnJp/ZW50ZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cU9EaFNR/TEROb3F6a2E2YVNx/bkFBdXdIbXAxTVZC/OUhFUkU1bUxaUTZK/TT0",
+        imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
             { nombre: "3 Personas", precio: 100.00 }
@@ -107,9 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                         </div>
                 </div>
-                        <div>
-                        <p id="price${index}">${producto.tamanos[0].precio}</p>
-                    </div>
+                <div class="content">
+                $<p id="price${index}" style="display: inline; margin-right: 10px;">${producto.tamanos[0].precio}</p>
+            </div>
                     <div class="extra content">
                         <button class="ui secondary button compra"
                             <a href="#" style="color: #F4F3EE;">Comprar</a>
@@ -125,33 +125,43 @@ document.addEventListener("DOMContentLoaded", function () {
         const botonCompra = card.querySelector('.compra');
         const priceParagraph = card.querySelector(`#price${index}`);
         const tamano = card.querySelector(`#tamano${index}`);
-
+        
         botonCompra.addEventListener("click", function () {
-            abrirAlerta(`Has comprado el producto ${producto.nombre} +${tamano.textContent}+${priceParagraph.textContent}`);
+            const tamanoPrueba=priceParagraph.textContent == 100 ? '3 personas' : 'Individual'
+            console.log("2   "+ tamanoPrueba)
+            
+            abrirAlerta(`${producto.imagen} ${producto.nombre} +${tamanoPrueba}+${priceParagraph.textContent}`);
         });
         botonCarrito.addEventListener("click", function () {
-            agregarAlCarrito(producto, tamano.textContent, priceParagraph.textContent);
+            const tamanoPrueba=priceParagraph.textContent == 100 ? '3 personas' : 'Individual'
+            agregarAlCarrito(producto, tamanoPrueba, priceParagraph.textContent);
         });
     });
-    function agregarAlCarrito(producto, tamano, precio) {
-        carrito.push({ nombre: producto.nombre, tamano, precio });
+    function agregarAlCarrito(producto, tamanoPrueba, precio) {
+        carrito.push({ nombre: producto.nombre, tamanoPrueba, precio, imagen:producto.imagen});
         mostrarCarrito();
     }
 
     function mostrarCarrito() {
         listaCarrito.innerHTML = '';
         let total = 0;
+        
         carrito.forEach((producto, index) => {
             const listItem = document.createElement('li');
             listItem.classList.add('item');
             listItem.innerHTML = `
-                <i class="large cart middle aligned icon"></i>
-                <div class="content">
-                    <a class="header">${producto.nombre}</a>
-                    <div class="description">Precio: $${producto.precio}</div>
-                </div>
-                <div class="right floated content">
-                    <button class="ui red button eliminar">Eliminar</button>
+            <div class="ui image">
+                <img src="${producto.imagen}" alt="Imagen del producto" style="max-width: 100px; max-height: 50px;">
+            </div>
+            <div class="content">
+            <a class="header">${producto.nombre}</a>
+            <div class="description">Precio: $${producto.precio}</div>
+            <div class="description">Tamaño:${producto.tamanoPrueba}</div>
+            <div class="right floated content"> 
+            <button class="ui brown button eliminar">
+            <i class="trash alternate icon"></i>
+          </button>
+            </div>
                 </div>
             `;
     

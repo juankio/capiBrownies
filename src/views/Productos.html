@@ -24,25 +24,26 @@
                 <button class="ui inverted icon button" id="hamburger">
                     <i class="bars icon"></i>
                 </button>
-                <img class="ui centered small image" style="height: 70px; object-fit: cover;"
-                    src="https://fomantic-ui.com/images/wireframe/image.png" alt="Logo CapiBrownies">
+                <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
+                    alt="Logo CapiBrownies">
                 <div class="ui inverted icon buttons" style="position: absolute; right: 120px;">
                     <button class="ui inverted button" id="miBoton"><i class="shopping cart icon"></i></button>
                     <div class="ui flowing popup transition hidden">
                         <div class="ui three column divided center aligned grid">
                             <div class="column">
-                                <div class="ui raised segment" style="max-height: 100%; right: 145px; width: 400px;">
-                                    <h2 class="ui header">Carrito de Compras</h2>
-                                    <ul id="lista-carrito" class="ui list">
-                                        <!-- Aquí se mostrarán los productos agregados -->
-                                    </ul>
-                                    <p>Total: <span id="total" class="ui header">$0</span></p>
+                                <div class="ui piled segment" style="max-height: 100%; right: 145px; width: 400px;">
+                                    <h2 class="ui header">Carrito
+                                        de Compras</h2>
+                                    <div class="ui raised segment">
+                                        <ul id="lista-carrito" class="ui list relaxed divided">
+                                            <!-- Aquí se mostrarán los productos agregados -->
+                                        </ul>
+                                        <p>Total: <span id="total" class="ui header">$0</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
                 <a class="ui inverted button" href="#">
                     <i class="user icon"></i>
@@ -62,17 +63,25 @@
 
     <div class="ui four column doubling stackable grid container" style=" margin-top: 10px; ">
         <!-- Los productos se cargarán aquí desde JavaScript -->
-    </div>
 
     </div>
 
+    </div>
 
-    <div class="ui modal message warning" id="alerta" style="display: none;">
-        <i class="close icon" onclick="cerrarAlerta()"></i>
-        <div class="header">
-            <i class="exclamation triangle icon"></i> ¡Error!
+
+    <div class="ui modal" id="alerta"
+        style="display: none; width: 400px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        <i class="close icon" onclick="cerrarAlerta()"
+            style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
+        <div class=" header"
+            style="background-color:#8B4513; color: #fff; padding: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            <div class="ui mini image" style="float: left;">
+                <img src="/logo.jpg" alt="Logo de la empresa" style="max-width: 40px;">
+            </div>
+            <div class="error-text" style="float: left; margin-left: 10px; font-size: 20px;">Tu compra es:</div>
+            <div style="clear: both;"></div>
         </div>
-        <div class="content">
+        <div class="content" style="padding: 20px;">
             <p id="alertaMessage" class="ui header center aligned"></p>
         </div>
     </div>
