@@ -7,57 +7,46 @@
     <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
     <script src="../../semantic/dist/semantic.min.js"></script>
 </head>
-<style>
-    body {
-        background-color: #f4f4f4;
-    }
 
-    .containers {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-</style>
 
 <body>
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; ">
-        <div class="ui raised horizontal segments">
-            <div class="ui segment column" style="max-width: 400px;">
-                <h2 class="ui brown header">
-                    <div class="content">
-                        Iniciar sesión
+    <div class="ui white raised horizontal "
+        style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; max-width: 100%; ">
+        <div class="ui segment column" style="max-width: 400px;">
+            <h2 class="ui brown header">
+                <div class="content">
+                    Iniciar sesión
+                </div>
+            </h2>
+            <form class="ui form" method="POST" action="/">
+                <div class="ui segment">
+                    <div class="field">
+                        <div class="ui left labeled input">
+                            <div class="ui label">
+                                <i class="ui user icon"></i>
+                            </div>
+                            <input type="email" name="usuario" id="id" placeholder="Correo" required>
+                        </div>
                     </div>
-                </h2>
-                <form class="ui form" method="POST" action="/">
-                    <div class="ui segment">
-                        <div class="field">
-                            <div class="ui left labeled input">
-                                <div class="ui label">
-                                    <i class="ui user icon"></i>
-                                </div>
-                                <input type="email" name="usuario" id="id" placeholder="Correo" required>
+                    <div class="field">
+                        <div class="ui left labeled input">
+                            <div class="ui label">
+                                <i class="ui lock icon"></i>
+                            </div>
+                            <input type="password" name="contrasena" id="contra" placeholder="Contraseña" required>
+                            <div class="ui label">
+                                <i class="ui low vision icon link" id="mostrarContra"></i>
                             </div>
                         </div>
-                        <div class="field">
-                            <div class="ui left labeled input">
-                                <div class="ui label">
-                                    <i class="ui lock icon"></i>
-                                </div>
-                                <input type="password" name="contrasena" id="contra" placeholder="Contraseña" required>
-                                <div class="ui label">
-                                    <i class="ui low vision icon link" id="mostrarContra"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="ui brown fluid teal submit button" type="submit">Enviar</button>
                     </div>
-                </form>
-                <p></p>
-                <a class="ui brown bottom ribbon label" href="/registro.html">Crear cuenta</a>
-            </div>
+                    <button class="ui brown fluid teal submit button" type="submit">Enviar</button>
+                </div>
+            </form>
+            <p></p>
+            <a class="ui brown bottom ribbon label" href="/registro.html">Crear cuenta</a>
         </div>
     </div>
+
 
 
 

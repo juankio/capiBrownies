@@ -1,0 +1,75 @@
+<div id="carrito">
+    <h2>Carrito de Compras</h2>
+    <ul id="lista-carrito">
+        <!-- Aquí se mostrarán los productos agregados -->
+    </ul>
+    <p>Total: <span id="total">0</span></p>
+</div>
+
+<!-- Aquí se mostrarán los productos disponibles para agregar al carrito -->
+<div id="productos">
+    <h2>Productos Disponibles</h2>
+    <ul id="lista-productos">
+        <!-- Aquí se listarán los productos disponibles -->
+    </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const listaProductos = document.getElementById("lista-productos");
+        const listaCarrito = document.getElementById("lista-carrito");
+        const totalCarrito = document.getElementById("total");
+        const carrito = [];
+
+        // Ejemplo de productos disponibles
+        const productosDisponibles = [
+            { id: 1, nombre: "Producto 1", precio: 10 },
+            { id: 2, nombre: "Producto 2", precio: 15 },
+            { id: 3, nombre: "Producto 3", precio: 20 }
+        ];
+
+        // Función para mostrar los productos disponibles
+        function mostrarProductos() {
+            listaProductos.innerHTML = "";
+            productosDisponibles.forEach(producto => {
+                const li = document.createElement("li");
+                li.innerHTML = `${producto.nombre} - $${producto.precio} <button data-id="${producto.id}">Agregar al carrito</button>`;
+                listaProductos.appendChild(li);
+            });
+        }
+
+        // Función para agregar productos al carrito
+        function agregarAlCarrito(id) {
+            const producto = productosDisponibles.find(p => p.id == id);
+            if (producto) {
+                carrito.push(producto);
+                actualizarCarrito();
+            }
+        }
+
+        // Función para actualizar la vista del carrito
+        function actualizarCarrito() {
+            listaCarrito.innerHTML = "";
+            let total = 0;
+            carrito.forEach(producto => {
+                const li = document.createElement("li");
+                li.innerHTML = `${producto.nombre} - $${producto.precio}`;
+                listaCarrito.appendChild(li);
+                total += producto.precio;
+            });
+            totalCarrito.textContent = total;
+        }
+
+        // Manejar clics en "Agregar al carrito"
+        listaProductos.addEventListener("click", e => {
+            if (e.target.tagName === "BUTTON") {
+                const id = parseInt(e.target.getAttribute("data-id"));
+                agregarAlCarrito(id);
+            }
+        });
+
+        // Inicializar la vista de productos y carrito
+        mostrarProductos();
+        actualizarCarrito();
+    });
+
+</script>
