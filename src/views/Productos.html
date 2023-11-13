@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ui inverted buttons">
+                    <!-- <div class="ui inverted buttons">
                         <button class="ui inverted button" id="miBoton"><i class="user icon"></i></button>
                     </div>
                     <div class="ui menu">
@@ -51,7 +51,20 @@
                             Browse
                             <i class="dropdown icon"></i>
                         </a>
+                    </div>-->
+                    <a class="ui inverted button" id="user-dropdown">
+                        <i class="user icon"></i>
+                    </a>
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content goes here -->
+                        <div class="ui vertical inverted menu">
+                            <a class="item" href="/usuario.html">Profile</a>
+                            <a class="item">Settings</a>
+                            <div class="divider"></div>
+                            <a class="item">Sign Out</a>
                         </div>
+                    </div>
+
                         <div class="ui fluid popup bottom left transition hidden">
                             <div class="ui four column relaxed equal height divided grid">
                                 <div class="column">
@@ -134,5 +147,19 @@
     <!-- <script src="/carrito.js"></script> -->
 
 </body>
+
+<script>
+    $(document).ready(function () {
+            $('#hamburger').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+            $('#user-dropdown').popup({
+                popup: '#user-dropdown-content',
+                on: 'click', 
+                position: 'bottom right',
+                exclusive: true,
+            });
+        });
+</script>
 
 </html>
