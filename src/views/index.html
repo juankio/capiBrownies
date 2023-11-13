@@ -12,7 +12,7 @@
 
 <body style="background-color: #F4F3EE;">
     <div>
-        <div class="ui inverted segment">
+        <div class="ui segment" style="background-color: #4b2d19;">
             <div class="centered-content">
                 <button class="ui inverted icon button" id="despegable">
                     <i class="bars icon"></i>
@@ -24,9 +24,18 @@
                     <a class="ui inverted button" href="#">
                         <i class="shopping cart icon"></i>
                     </a>
-                    <a class="ui inverted button" href="#">
+                    <a class="ui inverted button" id="user-dropdown">
                         <i class="user icon"></i>
                     </a>
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content goes here -->
+                        <div class="ui vertical inverted menu">
+                            <a class="item" href="/usuario.html">Profile</a>
+                            <a class="item">Settings</a>
+                            <div class="divider"></div>
+                            <a class="item">Sign Out</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -142,6 +151,18 @@
         $(document).ready(function () {
             $('#despegable').click(function () {
                 $('.ui.sidebar').sidebar('toggle');
+            });
+        });
+
+        $(document).ready(function () {
+            $('#hamburger').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+            $('#user-dropdown').popup({
+                popup: '#user-dropdown-content',
+                on: 'click', 
+                position: 'bottom right',
+                exclusive: true,
             });
         });
     </script>

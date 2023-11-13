@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapiBrownies - CapiPoints</title>
+    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="../../semantic/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+
+<body style="background-color: #F4F3EE;">
+    <div style="background-color: #F4F3EE;">
+        <div class="ui inverted segment">
+            <div class="centered-content">
+                <button class="ui inverted icon button" id="hamburger">
+                    <i class="bars icon"></i>
+                </button>
+                <img class="ui centered small image" style="height: 70px; object-fit: cover;" src="https://fomantic-ui.com/images/wireframe/image.png" alt="Logo CapiBrownies">
+                <div class="ui inverted icon buttons" style="position: absolute; right: 10px;">
+                    <a class="ui inverted button" href="#">
+                        <i class="shopping cart icon"></i>
+                    </a>
+                    <a class="ui inverted button" id="user-dropdown">
+                        <i class="user icon"></i>
+                    </a>
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content -->
+                        <div class="ui vertical inverted menu">
+                            <a class="item" href="/usuario.html">Cuenta</a>
+                            <a class="item">Preferencias</a>
+                            <div class="divider"></div>
+                            <a class="item">Salir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="ui inverted vertical sidebar menu">
+            <a class="item" href="index.html">Inicio</a>
+            <a class="item" href="Productos.html">Productos</a>
+            <a class="item" href="#">Conócenos</a>
+        </div>
+
+        <div class="ui container" style="padding: 20px;">
+            <!-- User Profile -->
+            <div class="ui segment">
+                <div class="ui grid">
+                    <div class="three wide column">
+                        <img class="ui circular image" src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="User Avatar">
+                    </div>
+                    <div class="twelve wide column">
+                        <h2>User's Name</h2>
+                        <p>Email: user@example.com</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Rewards Summary -->
+            <div class="ui segment">
+                <h3>Resumen</h3>
+                <div class="ui three column grid">
+                    <div class="column">
+                        <div class="ui statistics">
+                            <div class="statistic">
+                                <div class="value">100</div>
+                                <div class="label">Capicoins</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui statistics">
+                            <div class="statistic">
+                                <div class="value">5</div>
+                                <div class="label">Insignias</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui statistics">
+                            <div class="statistic">
+                                <div class="value">2</div>
+                                <div class="label">Cupones</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Available Offers -->
+            <div class="ui segment">
+                <h3>Productos disponibles</h3>
+                <div class="ui divided items">
+                    <!-- Offer Item 1 -->
+                    <div class="item">
+                        <div class="image">
+                            <img src="offer_image1.jpg" alt="Offer Image">
+                        </div>
+                        <div class="content">
+                            <a class="header">Capi-Galleta</a>
+                            <div class="description">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui brown button">Canjear</div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Offer Item 2 -->
+                    <div class="item">
+                        <div class="image">
+                            <img src="offer_image2.jpg" alt="Offer Image">
+                        </div>
+                        <div class="content">
+                            <a class="header">Capi-Peluche</a>
+                            <div class="description">
+                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui brown button">Canjear</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Offer Item 3 -->
+                    <div class="item">
+                        <div class="image">
+                            <img src="offer_image2.jpg" alt="Offer Image">
+                        </div>
+                        <div class="content">
+                            <a class="header">Capi-Playera</a>
+                            <div class="description">
+                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui brown button">Canjear</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Footer -->
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Contactos</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">
+                                <i class="envelope icon"></i> carlosk.garza@udem.edu
+                            </a>
+                            <a href="#" class="item">
+                                <i class="phone icon"></i> 1 81 1299 7559
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Políticas</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">
+                                <i class="cookie bite icon"></i> Privacidad y cookies
+                            </a>
+                            <a href="#" class="item">
+                                <i class="file alternate icon"></i> Términos y condiciones
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Compra presencial</h4>
+                        <div class="ui inverted link list">
+                            <a href="https://linktr.ee/capi_brownies" class="item" target="_blank">
+                                <i class="map marker alternate icon"></i> Ubicaciones</a>
+                            <a href="" class="item">
+                                <i class="calendar alternate icon"></i> Horarios</a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Redes Sociales</h4>
+                        <div class="ui inverted link list">
+                            <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
+                                <i class="tiktok icon"></i> Capi_Brownies
+                            </a>
+                            <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
+                                <i class="instagram icon"></i> CapiBrownies
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+                <br>
+                <br>
+                <p style="text-align: center;">CapiBrownies &copy; 2023</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#hamburger').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+        });
+
+        $(document).ready(function () {
+            $('#hamburger').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+            $('#user-dropdown').popup({
+                popup: '#user-dropdown-content',
+                on: 'click', // Change 'hover' to 'click'
+                position: 'bottom right',
+                exclusive: true,
+            });
+        });
+    </script>
+
+    <style>
+        .centered-content {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+    </style>
+</body>
+</html>

@@ -37,6 +37,7 @@ const port = process.env.PORT || 9000;
       res.sendFile(path.join(__dirname, 'views', 'login.html'));
     });
 
+    // Páginas HTML
     app.get('/index.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'index.html'));
     });
@@ -46,6 +47,11 @@ const port = process.env.PORT || 9000;
     app.get('/productos.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'Productos.html'));
     });
+    app.get('/usuario.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'usuario.html'));
+    }); 
+
+    // Scripts
     app.get('/productos.js', (req, res) => {
       res.sendFile(path.join(__dirname, 'scripts', 'productos.js'));
     });

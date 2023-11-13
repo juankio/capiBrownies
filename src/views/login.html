@@ -9,23 +9,23 @@
 </head>
 
 
-<body>
-    <div class="ui white raised horizontal "
-        style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; max-width: 100%; ">
-        <div class="ui piled segment column" style="max-width: 400px;">
-            <h2 class="ui brown header">
-                <div class="content">
+<body style="background-color: #f4f4f4;">
+    <div class="ui white raised horizontal segments"
+        style="display: flex; justify-content: center; align-items: center; height: 100vh; ">
+        <div class="ui segment column" style="max-width: 600px; border-radius: 5px;">
+            <h2 class="">
+                <div class="ui brown header content" style="text-align: center;">
                     Iniciar sesión
                 </div>
             </h2>
             <form class="ui form" method="POST" action="/">
-                <div class="ui piled segment">
+                <div class="ui segment">
                     <div class="field">
                         <div class="ui left labeled input">
                             <div class="ui label">
                                 <i class="ui user icon"></i>
                             </div>
-                            <input type="email" name="usuario" id="id" placeholder="Correo" required>
+                            <input type="email" name="usuario" id="id" placeholder="Correo">
                         </div>
                     </div>
                     <div class="field">
@@ -33,17 +33,17 @@
                             <div class="ui label">
                                 <i class="ui lock icon"></i>
                             </div>
-                            <input type="password" name="contrasena" id="contra" placeholder="Contraseña" required>
+                            <input type="password" name="contrasena" id="contra" placeholder="Contraseña">
                             <div class="ui label">
                                 <i class="ui low vision icon link" id="mostrarContra"></i>
                             </div>
                         </div>
                     </div>
-                    <button class="ui brown fluid submit button" type="submit">Enviar</button>
+                    <button class="ui brown fluid submit button big text" type="submit">Ingresar</button>
                 </div>
             </form>
             <p></p>
-            <a class="ui brown bottom ribbon label" href="/registro.html">Crear cuenta</a>
+            <a class="ui brown bottom ribbon label large text" href="/registro.html">Crear cuenta</a>
         </div>
     </div>
 
@@ -67,8 +67,9 @@
     </div>
 
 
-
-
+<style>
+    
+</style>
 
 
     <script>
