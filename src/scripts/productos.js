@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 $<p id="price${index}" style="display: inline; margin-right: 10px;">${producto.tamanos[0].precio}</p>
             </div>
                     <div class="extra content">
-                        <button class="ui secondary button compra"
+                        <button class="ui secondary button compra" style="margin-top: 10px;">
                             <a href="#" style="color: #F4F3EE;">Comprar</a>
                         </button>
                 </div>
