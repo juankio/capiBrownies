@@ -104,8 +104,24 @@ app.get('/registro.html', async (req, res) => {
       res.sendFile(path.join(__dirname, 'img', 'galleta.jpg'));
     });
     app.get('/nutella.jpg', (req, res) => {
-      res.sendFile(path.join(__dirname, 'img', 'nutella2.jpg'));
+      res.sendFile(path.join(__dirname, 'img', 'nutella.jpg'));
     });
+    app.get('/coco.jpg', (req, res) => {
+      res.sendFile(path.join(__dirname, 'img', 'coco.jpg'));
+    });
+    app.get('/zebra.jpg', (req, res) => {
+      res.sendFile(path.join(__dirname, 'img', 'zebra.jpg'));
+    });
+    app.get('/oreo.jpg', (req, res) => {
+      res.sendFile(path.join(__dirname, 'img', 'oreo.jpg'));
+    });
+    app.get('/cheesecake.jpg', (req, res) => {
+      res.sendFile(path.join(__dirname, 'img', 'cheesecake.jpg'));
+    });
+    app.get('/brookie.jpg', (req, res) => {
+      res.sendFile(path.join(__dirname, 'img', 'brookie.jpg'));
+    });
+
     app.get('/logo.jpg', (req, res) => {
       res.sendFile(path.join(__dirname, 'img', 'logo2.png'));
     });

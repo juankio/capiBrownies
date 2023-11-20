@@ -31,7 +31,7 @@ const productos = [
     },
     {
         nombre: "Coco",
-        imagen: "/brwnie.jpg",
+        imagen: "/coco.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "Paquete de 10", precio: 400.00 },
@@ -40,7 +40,7 @@ const productos = [
     },
     {
         nombre: "Zebra",
-        imagen: "/brwnie.jpg",
+        imagen: "/zebra.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "Paquete de 10", precio: 400.00 },
@@ -49,7 +49,7 @@ const productos = [
     },
     {
         nombre: "Oreo",
-        imagen: "/brwnie.jpg",
+        imagen: "/oreo.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
             { nombre: "Paquete de 10", precio: 100.00 },
@@ -57,8 +57,8 @@ const productos = [
         ]
     },
     {
-        nombre: "Cheescake",
-        imagen: "/brwnie.jpg",
+        nombre: "Cheesecake",
+        imagen: "/cheesecake.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
             { nombre: "Paquete de 10", precio: 100.00 },
@@ -67,7 +67,7 @@ const productos = [
     },
     {
         nombre: "Brookie",
-        imagen: "/brwnie.jpg",
+        imagen: "/brookie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
             { nombre: "Paquete de 10", precio: 100.00 },
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const listItem = document.createElement('li');
             listItem.classList.add('item');
             listItem.innerHTML = `
-            <div class="ui image">
+            <div class="ui image" >
                 <img src="${producto.imagen}" alt="Imagen del producto" style="max-width: 100px; max-height: 50px;">
             </div>
             <div class="content">
