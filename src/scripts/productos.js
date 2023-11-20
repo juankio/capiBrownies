@@ -7,7 +7,8 @@ const productos = [
         imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 400.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
@@ -15,7 +16,8 @@ const productos = [
         imagen: "/galleta.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 400.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
@@ -23,7 +25,8 @@ const productos = [
         imagen: "/nutella.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 400.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
@@ -31,7 +34,8 @@ const productos = [
         imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 400.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
@@ -39,7 +43,8 @@ const productos = [
         imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 400.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
@@ -47,7 +52,8 @@ const productos = [
         imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 100.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
@@ -55,7 +61,8 @@ const productos = [
         imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 100.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
@@ -63,7 +70,8 @@ const productos = [
         imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
-            { nombre: "3 Personas", precio: 100.00 }
+            { nombre: "Paquete de 10", precio: 100.00 },
+            { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
 
@@ -160,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="right floated content"> 
             <button class="ui brown button eliminar">
             <i class="trash alternate icon"></i>
-          </button>
+            </button>
             </div>
                 </div>
             `;
@@ -208,11 +216,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).ready(function() {
         $('#miBoton').popup({
-          popup: '.ui.popup',
-          on: 'click',
-          position: 'top center'
+            popup: '.ui.popup',
+            on: 'click',
+            position: 'top center'
         });
-      });
+    });
 
 });
 // funciones para alerta 
