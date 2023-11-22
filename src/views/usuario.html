@@ -11,8 +11,14 @@
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
-<body style="background-color: #F4F3EE;">
-    <div style="background-color: #F4F3EE;">
+<body class="stackable" style="background-color: #F4F3EE;">
+    <!-- Sidebar -->
+    <div class="ui inverted vertical sidebar menu">
+        <a class="item" href="index.html">Inicio</a>
+        <a class="item" href="Productos.html">Productos</a>
+        <a class="item" href="#">Conócenos</a>
+    </div>
+    <div class="pusher" style="background-color: #F4F3EE;">
         <div class="ui segment" style="background-color: #4b2d19;">
             <div class="centered-content">
                 <button class="ui inverted icon button" id="hamburger">
@@ -29,7 +35,7 @@
                     <div class="ui flowing popup transition hidden" id="user-dropdown-content">
                         <!-- Dropdown content -->
                         <div class="ui vertical inverted menu">
-                            <a class="item" href="/usuario.html">Cuenta</a>
+                            <a class="active item" href="/usuario.html">Cuenta</a>
                             <a class="item">Preferencias</a>
                             <div class="divider"></div>
                             <a class="item">Salir</a>
@@ -37,13 +43,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="ui inverted vertical sidebar menu">
-            <a class="item" href="index.html">Inicio</a>
-            <a class="item" href="Productos.html">Productos</a>
-            <a class="item" href="#">Conócenos</a>
         </div>
 
         <div class="ui container" style="padding: 20px;">

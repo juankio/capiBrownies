@@ -7,7 +7,7 @@ const productos = [
         imagen: "/brwnie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
-            { nombre: "Paquete de 10", precio: 400.00 },
+            { nombre: "Paquete de 10", precio: 500.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
@@ -52,7 +52,7 @@ const productos = [
         imagen: "/oreo.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
-            { nombre: "Paquete de 10", precio: 100.00 },
+            { nombre: "Paquete de 10", precio: 450.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
@@ -61,7 +61,7 @@ const productos = [
         imagen: "/cheesecake.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
-            { nombre: "Paquete de 10", precio: 100.00 },
+            { nombre: "Paquete de 10", precio: 450.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
@@ -70,7 +70,7 @@ const productos = [
         imagen: "/brookie.jpg",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
-            { nombre: "Paquete de 10", precio: 100.00 },
+            { nombre: "Paquete de 10", precio: 500.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
         <div class="ui special cards">
     <div class="card">
-        <div class="blurring dimmable image" style="height: 200px; width: 100%; overflow: hidden; position: relative;">
+        <div class="blurring dimmable image" style="height: 260px; width: 100%; overflow: hidden; position: relative;">
             <div class="ui dimmer">
                 <div class="content">
                     <div class="center">
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const listItem = document.createElement('li');
             listItem.classList.add('item');
             listItem.innerHTML = `
-            <div class="ui image" >
+            <div class="ui image">
                 <img src="${producto.imagen}" alt="Imagen del producto" style="max-width: 100px; max-height: 50px;">
             </div>
             <div class="content">
