@@ -88,42 +88,48 @@ document.addEventListener("DOMContentLoaded", function () {
         const card = document.createElement('div');
         card.className = 'column';
         card.innerHTML = `
-            <div class="ui special cards">
-                <div class="card">
-                    <div class="blurring dimmable image">
-                        <div class="ui dimmer">
-        <div class="content">
-            <div class="center">
-                <div class="ui inverted button carrito" id="compra${index}"><i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito</div>
-            </div>
-        </div>
-        </div>
-        <img src="${producto.imagen}">
+        <div class="ui special cards">
+    <div class="card">
+        <div class="blurring dimmable image" style="height: 200px; width: 100%; overflow: hidden; position: relative;">
+            <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        <div class="ui inverted button carrito" id="compra${index}">
+                            <i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito
+                        </div>
                     </div>
-                    <div class="content">
-                        <a class="header" href="#" style="margin-bottom: 10px;">${producto.nombre}</a>
-                        <div class="ui form">
-                            <div class="field">
-                <div class="ui selection dropdown" id="despegable${index}" style="margin-bottom: 10px;">
-                    <input type="hidden" name="tamaño">
-                    <i class="dropdown icon"></i>
-                        <div class="default text">Tamaño</div>
+                </div>
+            </div>
+            <img style="height: 100%; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" src="${producto.imagen}">
+        </div>
+        <div class="content">
+                <a class="header" href="#" style="margin-bottom: 10px;">${producto.nombre}</a>
+                <div class="ui form">
+                    <div class="field">
+                        <div class="ui selection dropdown" id="despegable${index}" style="margin-bottom: 10px;">
+                            <input type="hidden" name="tamaño">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Tamaño</div>
                             <div class="menu" id="tamano${index}">
-                            ${producto.tamanos.map(tamano => `
-                                <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
-                            `).join('')}
+                                ${producto.tamanos.map(tamano => `
+                                    <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
+                                `).join('')}
                             </div>
                         </div>
-                </div>
-                <div class="content">
-                $<p id="price${index}" style="display: inline; margin-right: 10px;">${producto.tamanos[0].precio}</p>
-            </div>
+                    </div>
+                    <div class="content">
+                        $<p id="price${index}" style="display: inline; margin-right: 10px;">${producto.tamanos[0].precio}</p>
+                    </div>
                     <div class="extra content">
                         <button class="ui secondary button compra" style="margin-top: 10px;">
                             <a href="#" style="color: #F4F3EE;">Comprar</a>
                         </button>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    
             
         `;
 
