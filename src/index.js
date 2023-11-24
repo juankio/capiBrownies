@@ -1,4 +1,4 @@
-// const oracledb = require('oracledb');
+const oracledb = require('oracledb');
 
 const express = require('express');
 require('dotenv').config();
@@ -7,11 +7,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 9000;
 
-// let connection;
+let connection;
 
-// (async () => {
-//   try {
-    // connection = await oracledb.getConnection({ user: "ADMIN", password: "capiBrownies123", connectionString: "(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.mx-monterrey-1.oraclecloud.com))(connect_data=(service_name=g04a8e4b91f3260_capibrownies_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))" });
+(async () => {
+  try {
+    connection = await oracledb.getConnection({ user: "ADMIN", password: "capiBrownies123", connectionString: "(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.mx-monterrey-1.oraclecloud.com))(connect_data=(service_name=g04a8e4b91f3260_capibrownies_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))" });
 
     // Create a table
   //  await connection.execute(`begin execute immediate 'drop table nodetab'; exception when others then if sqlcode <> -942 then raise; end if; end;`);
@@ -44,45 +44,54 @@ const port = process.env.PORT || 9000;
       res.sendFile(path.join(__dirname, 'views', 'index.html'));
     });
 
+    app.get('/registro.html', async (req, res) => {
+      try {
+          // Send the file after sending the response
+          res.sendFile(path.join(__dirname, 'views', 'registro.html'));
 
-    // const oracledb = require('oracledb');
-
-app.get('/registro.html', async (req, res) => {
-  // try {
-    res.sendFile(path.join(__dirname, 'views', 'registro.html'));
-
-    // const { name, apellido, email, contrasena, contrasena2 } = req.body;
-
-    // Configurar la conexión a la base de datos
-    // const connection = await oracledb.getConnection();
-
-    // Llamar al procedimiento almacenado
-  //   const result = await connection.execute(
-  //     `BEGIN
-  //       AGREGARUSUARIO(:in_nombre, :in_apellido, :in_correo, :in_contraseña, :in2_contraseña);
-  //     END;`,
-  //     {
-  //       in_nombre: name,
-  //       in_apellido: apellido,
-  //       in_correo: email,
-  //       in_contraseña: contrasena,
-  //       in2_contraseña: contrasena2,
-  //     }
-  //   );
-
-  //   console.log(result);
-
-  //   // Liberar la conexión
-  //   await connection.close();
-
-  //   // Manejar el resultado de la operación (puedes ajustar según tus necesidades)
-  //   res.status(200).send('Usuario registrado correctamente.');
-  // } catch (error) {
-  //   // Manejar errores (puedes ajustar según tus necesidades)
-  //   console.error(error);
-  //   res.status(500).send('Error en el servidor.');
-  // }
-});
+          const { name, apellido, email, contrasena } = req.body;
+  
+          // Call the stored procedure
+          const result = await connection.execute(
+              `BEGIN
+                  AGREGARUSUARIO(:in_nombre, :in_apellido, :in_correo, :in_contra);
+              END;`,
+              {
+                  in_nombre: name,
+                  in_apellido: apellido,
+                  in_correo: email,
+                  in_contra: contrasena,
+              }
+          );
+  
+          console.log(result);
+  
+          // If everything is successful, send a response
+          res.status(200).send('Usuario registrado correctamente.');
+      } catch (error) {
+          if (error.errorNum === 20002) {
+              // Password mismatch error
+              console.error('Password mismatch error:', error.message);
+              // Send a response indicating the password mismatch
+              res.status(400).send('Las contraseñas no concuerdan.');
+          } else {
+              // Other errors
+              console.error('Error:', error);
+              // Send a generic error response
+              res.status(500).send('Error en el servidor.');
+          }
+      }
+  });
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
 
     app.get('/productos.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'Productos.html'));
@@ -137,7 +146,7 @@ app.get('/registro.html', async (req, res) => {
     });
     
     app.listen(port, () => console.log('Server is running on port', port));
-  // } catch (error) {
-  //   console.error('Error connecting to Oracle Cloud:', error);
-  // }
-// })();
+  } catch (error) {
+    console.error('Error connecting to Oracle Cloud:', error);
+  }
+})();

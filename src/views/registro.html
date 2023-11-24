@@ -32,7 +32,7 @@
                     Registro de Usuario
                 </div>
             </h2>
-            <form class="ui large form">
+            <form class="ui large form" id="registrationForm" method="post" action="/registro.html">
                 <div class="ui segment">
                     <div class="field">
                         <label>Nombre</label>
@@ -64,13 +64,27 @@
                             </div>
                         </div>
                     </div>
-                    <button class="ui fluid large brown submit button" type="submit">Registrar</button>
+                    <button class="ui fluid large brown submit button" type="submit" onclick="validatePasswords()">Registrar</button>
                 </div>
             </form>
         </div>
     </div>
 </body>
 <script>
+    function validatePasswords() {
+        var password1 = document.getElementById("contra").value;
+        var password2 = document.getElementById("contra2").value;
+        var warning = document.getElementById("passwordWarning");
+
+        if (password1 === password2) {
+            // Passwords match, submit the form
+            document.getElementById("registrationForm").submit();
+        } else {
+            // Passwords don't match, show a warning
+            alert('Las contraseñas no concuerdan.');
+        }
+    }
+
     $(document).ready(function () {
         const mostrarContra = document.getElementById("mostrarContra");
         const password = document.getElementById("contra");
