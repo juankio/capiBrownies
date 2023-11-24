@@ -43,47 +43,47 @@ let connection;
     app.get('/index.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'index.html'));
     });
+    app.get('/registro.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'registro.html'));
+    });
+  
+  app.post('/registro.html', async (req, res) => {
+    try {
+        // Send the file after sending the response
+        const { nombre, apellido, correo, contra } = req.body;
+      
+        // Call the stored procedure
+        const result = await connection.execute(
+            `BEGIN
+                AGREGARUSUARIO(:in_nombre, :in_apellido, :in_correo, :in_contra);
+            END;`,
+            {
+                in_nombre: nombre,
+                in_apellido: apellido,
+                in_correo: correo,
+                in_contra: contra,
+            }
+        );
 
-    app.get('/registro.html', async (req, res) => {
-      try {
-          // Send the file after sending the response
-          res.sendFile(path.join(__dirname, 'views', 'registro.html'));
+        console.log(result);
 
-          const { name, apellido, email, contrasena } = req.body;
-  
-          // Call the stored procedure
-          const result = await connection.execute(
-              `BEGIN
-                  AGREGARUSUARIO(:in_nombre, :in_apellido, :in_correo, :in_contra);
-              END;`,
-              {
-                  in_nombre: name,
-                  in_apellido: apellido,
-                  in_correo: email,
-                  in_contra: contrasena,
-              }
-          );
-  
-          console.log(result);
-  
-          // If everything is successful, send a response
-          res.status(200).send('Usuario registrado correctamente.');
-      } catch (error) {
-          if (error.errorNum === 20002) {
-              // Password mismatch error
-              console.error('Password mismatch error:', error.message);
-              // Send a response indicating the password mismatch
-              res.status(400).send('Las contraseñas no concuerdan.');
-          } else {
-              // Other errors
-              console.error('Error:', error);
-              // Send a generic error response
-              res.status(500).send('Error en el servidor.');
-          }
-      }
-  });
-  
-  
+        // // If everything is successful, send a response
+        res.status(200).send('Usuario registrado correctamente.');
+    }
+     catch (error) {
+        if (error.errorNum === 20002) {
+            // Password mismatch error
+            console.error('Password mismatch error:', error.message);
+            // Send a response indicating the password mismatch
+            res.status(400).send('Las contraseñas no concuerdan.');
+        } else {
+            // Other errors
+            console.error('Error:', error);
+            // Send a generic error response
+            res.status(500).send('Error en el servidor.');
+        }
+    }
+});
   
   
   

@@ -32,22 +32,22 @@
                     Registro de Usuario
                 </div>
             </h2>
-            <form class="ui large form" id="registrationForm" method="post" action="/registro.html">
+            <form class="ui large form" id="registrationForm" method="POST" action="/registro.html">
                 <div class="ui segment">
                     <div class="field">
-                        <label>Nombre</label>
-                        <input type="text" name="name" placeholder="Nombre de Usuario">
+
+                        <input type="text" name="name1" id="name1" placeholder="Nombre de Usuario">
                     </div>
                     <div class="field">
-                        <label>Apellido</label>
-                        <input type="text" name="apellido" placeholder="Apellido de Usuario">
+
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido de Usuario">
                     </div>
                     <div class="field">
-                        <label>Correo Electrónico</label>
-                        <input type="email" name="email" placeholder="Correo Electrónico">
+
+                        <input type="email" name="email1" id="email1" placeholder="Correo Electrónico">
                     </div>
                     <div class="field">
-                        <label>Contraseña</label>
+
                         <div class="ui left labeled input">
                             <input type="password" name="contrasena" id="contra" placeholder="Contraseña">
                             <div class="ui label">
@@ -56,7 +56,6 @@
                         </div>
                     </div>
                     <div class="field">
-                        <label>Confirmar Contraseña</label>
                         <div class="ui left labeled input">
                             <input type="password" name="contrasena2" id="contra2" placeholder="Comprobar contraseña">
                             <div class="ui label">
@@ -64,13 +63,43 @@
                             </div>
                         </div>
                     </div>
-                    <button class="ui fluid large brown submit button" type="submit" onclick="validatePasswords()">Registrar</button>
+                    <button class="ui fluid large brown submit button" type="submit"
+                        onclick="validatePasswords()">Registrar</button>
                 </div>
             </form>
         </div>
     </div>
 </body>
 <script>
+
+    $("form").submit(function (e) {
+        e.preventDefault();
+
+        const nombre = $("#name1").val();
+        const apellido = $("#apellido").val();
+        const correo = $("#email1").val();
+        const contra = $("#contra").val();
+        // Serializa los datos del formulario como JSON
+        const data = {
+            nombre,
+            apellido,
+            correo,
+            contra,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/registro.html",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: function (response) {
+                window.location.href = "/registro.html";
+            },
+            error: function (error) {
+                abrirAlerta("Credenciales incorrectas");
+            }
+        });
+    });
     function validatePasswords() {
         var password1 = document.getElementById("contra").value;
         var password2 = document.getElementById("contra2").value;
@@ -84,11 +113,10 @@
             alert('Las contraseñas no concuerdan.');
         }
     }
-
     $(document).ready(function () {
         const mostrarContra = document.getElementById("mostrarContra");
         const password = document.getElementById("contra");
-    
+
         mostrarContra.addEventListener("click", function () {
             if (password.type === "password") {
                 password.type = "text";
@@ -101,7 +129,7 @@
     $(document).ready(function () {
         const mostrarContra = document.getElementById("mostrarContra2");
         const password = document.getElementById("contra2");
-    
+
         mostrarContra.addEventListener("click", function () {
             if (password.type === "password") {
                 password.type = "text";
@@ -112,4 +140,5 @@
     });
 
 </script>
+
 </html>
