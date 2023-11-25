@@ -4,6 +4,7 @@ const express = require('express');
 require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const app = express();
 const port = process.env.PORT || 9000;
 
@@ -34,10 +35,53 @@ let connection;
 
     app.use(express.json());
 
+
+    // Guardar la seccion 
+    app.use(session({
+      secret: 'your-secret-key',
+      resave: false,
+      saveUninitialized: true,
+    }));
+
+
+
     // ruta para paginas
     app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'login.html'));
     });
+
+    app.post('/', async (req, res) => {
+      try {
+          const { correo, contrasena } = req.body;
+          // Llamar al procedimiento almacenado para verificar el usuario
+          const result = await connection.execute(
+              'BEGIN login(:in_correo, :in_contrasena, :out_usuario_id); END;',
+              {
+                  in_correo: correo,
+                  in_contrasena: contrasena,
+                  out_usuario_id: { type: oracledb.NUMBER, dir: oracledb.BIND_OUT }
+              }
+          );
+  
+          const usuarioId = result.outBinds.out_usuario_id;
+  
+          // Verificar si el usuario existe
+          if (usuarioId !== null) {
+              // Almacenar el usuario_id en la sesión (puedes usar alguna librería de manejo de sesiones)
+              req.session.usuarioId = usuarioId;
+  
+              // Redirigir a la página de inicio o a donde sea necesario
+              res.redirect('/index.html');
+          } else {
+              // El usuario no existe, manejar la lógica correspondiente (puedes mostrar un mensaje de error, redirigir a otra página, etc.)
+              res.status(401).send('Credenciales incorrectas');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          res.status(500).send('Error en el servidor.');
+      }
+    });
+  
 
     // Páginas HTML
     app.get('/index.html', (req, res) => {
@@ -77,8 +121,11 @@ let connection;
 
         console.log("Exito");
 
-        // If everything is successful, send a response
-        res.redirect('/index.html');
+
+        const usuarioId = result.outBinds.out_usuario_id;
+        req.session.usuarioId = usuarioId;
+
+        
 
         } catch (error) {
         if (error.errorNum === 20001) {
@@ -99,9 +146,37 @@ let connection;
     app.get('/productos.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'Productos.html'));
     });
-    app.get('/usuario.html', (req, res) => {
-      res.sendFile(path.join(__dirname, 'views', 'usuario.html'));
-    }); 
+
+
+    app.get('/usuario.html', async (req, res) => {
+    try {
+        const usuarioId = req.session.usuarioId;
+        // Llamar al procedimiento almacenado
+        const result = await connection.execute(
+            'BEGIN ObtenerCapiPoints(:in_usuario_id, :out_nombre, :out_apellido, :out_capiPoints); END;',
+            {
+                in_usuario_id: usuarioId,
+                out_nombre: { type: oracledb.STRING, dir: oracledb.BIND_OUT },
+                out_apellido: { type: oracledb.STRING, dir: oracledb.BIND_OUT },
+                out_capiPoints: { type: oracledb.NUMBER, dir: oracledb.BIND_OUT }
+            }
+        );
+
+        const userData = {
+            nombre: result.outBinds.out_nombre,
+            apellido: result.outBinds.out_apellido,
+            capiPoints: result.outBinds.out_capiPoints
+        };
+
+        // Renderizar la página usuario.html con los datos
+        res.render('usuario', { usuario: userData });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error en el servidor.');
+    }
+  });
+
+  
 
     // Scripts
     app.get('/productos.js', (req, res) => {

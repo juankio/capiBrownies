@@ -28,7 +28,7 @@
                             <div class="ui label">
                                 <i class="ui user icon" style="margin: 0.3em;"></i>
                             </div>
-                            <input type="email" name="usuario" id="id" placeholder="Correo">
+                            <input type="email" name="correo" id="correo" placeholder="Correo">
                         </div>
                     </div>
                     <div class="field">
@@ -36,7 +36,7 @@
                             <div class="ui label">
                                 <i class="ui lock icon" style="margin: 0.3em;"></i>
                             </div>
-                            <input type="password" name="contrasena" id="contra" placeholder="Contraseña">
+                            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña">
                             <div class="ui label">
                                 <i class="ui low vision icon link" style="margin: 0.3em;" id="mostrarContra"></i>
                             </div>
@@ -91,12 +91,12 @@
             $("form").submit(function (e) {
                 e.preventDefault();
 
-                const usuario = $("#id").val();
-                const contrasena = $("#contra").val();
+                const correo = $("#correo").val();
+                const contrasena = $("#contrasena").val();
 
                 // Serializa los datos del formulario como JSON
                 const data = {
-                    usuario,
+                    correo,
                     contrasena
                 };
 
