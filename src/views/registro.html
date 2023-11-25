@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CapiBrownies - Registro</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="../semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
+    <script src="../../semantic/dist/semantic.min.js"></script>
 </head>
 
 <body class="stackable">
@@ -63,8 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="ui fluid large brown submit button" type="submit"
-                        onclick="validatePasswords()">Registrar</button>
+                    <button class="ui fluid large brown submit button" type="submit">Registrar</button>
                 </div>
             </form>
         </div>
@@ -75,44 +73,41 @@
     $("form").submit(function (e) {
         e.preventDefault();
 
-        const nombre = $("#name1").val();
-        const apellido = $("#apellido").val();
-        const correo = $("#email1").val();
-        const contra = $("#contra").val();
-        // Serializa los datos del formulario como JSON
-        const data = {
-            nombre,
-            apellido,
-            correo,
-            contra,
-        };
-
-        $.ajax({
-            type: "POST",
-            url: "/registro.html",
-            data: JSON.stringify(data),
-            contentType: "application/json",
-            success: function (response) {
-                window.location.href = "/registro.html";
-            },
-            error: function (error) {
-                abrirAlerta("Credenciales incorrectas");
-            }
-        });
-    });
-    function validatePasswords() {
         var password1 = document.getElementById("contra").value;
         var password2 = document.getElementById("contra2").value;
-        var warning = document.getElementById("passwordWarning");
 
         if (password1 === password2) {
-            // Passwords match, submit the form
-            document.getElementById("registrationForm").submit();
+            const nombre = $("#name1").val();
+            const apellido = $("#apellido").val();
+            const correo = $("#email1").val();
+            const contra = $("#contra").val();
+
+            // Serializa los datos del formulario como JSON
+            const data = {
+                nombre,
+                apellido,
+                correo,
+                contra,
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/registro.html",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (response) {
+                    window.location.href = "/registro.html";
+                },
+                error: function (error) {
+                    console.log("llega nombre", nombre);
+                    alert("Credenciales incorrectas");
+                }
+            });
         } else {
-            // Passwords don't match, show a warning
             alert('Las contraseñas no concuerdan.');
         }
-    }
+    });
+
     $(document).ready(function () {
         const mostrarContra = document.getElementById("mostrarContra");
         const password = document.getElementById("contra");
