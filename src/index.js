@@ -94,9 +94,10 @@ let connection;
   
     app.post('/registro.html', async (req, res) => {
       try{
-          const { nombre, apellido, correo, contra } = req.body;
+          const { nombre, apellido, correo, contra,contra2 } = req.body;
           console.log('Datos recibidos:', nombre, apellido, correo, contra)
-
+          if (contra === contra2) {
+            res.status(200).json({ mensaje: 'Registro exito' });
           // Call the stored procedure
           const result = await connection.execute(
             `BEGIN
@@ -119,12 +120,13 @@ let connection;
             }
           );
 
-        console.log("Exito");
+        console.log("Exito"); 
 
-
-        res.redirect('/index.html');
-
-        } catch (error) {
+          } else {
+            res.status(401).json({ mensaje: 'Algo salio mal vuelvalo a intentar' });
+          }
+         
+        } catch (error) {          
         if (error.errorNum === 20001) {
             // Password mismatch error
             console.error('Password mismatch error:', error.message);
