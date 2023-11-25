@@ -26,9 +26,20 @@
                 <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
                     alt="Logo CapiBrownies">
                 <div class="ui inverted icon buttons" style="position: absolute; right: 10px;">
-                    <a class="ui inverted button" href="#">
+                    <button class="ui inverted button" id="miBoton">
                         <i class="shopping cart icon"></i>
-                    </a>
+                    </button>
+
+                    <div class="ui flowing popup transition hidden">
+                        <div class="ui three column divided center aligned grid">
+                            <div class="column">
+                                <div class="ui segment" style="max-height: 100%; right: 145px; width: 400px;">
+                                    <h2 class="ui header">Mensaje</h2>
+                                    <p>No está en la sección de productos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <a class="ui inverted button" id="user-dropdown">
                         <i class="user icon"></i>
                     </a>
@@ -38,7 +49,7 @@
                             <a class="active item" href="/usuario.html">Cuenta</a>
                             <a class="item">Preferencias</a>
                             <div class="divider"></div>
-                            <a class="item">Salir</a>
+                            <a class="item" href="/">Salir</a>
                         </div>
                     </div>
                 </div>
@@ -200,51 +211,86 @@
         </div>
     </div>
 
-    <script>
-        window.onload = function () {
-            fetch('/usuario.html', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-                // Puedes agregar body si necesitas enviar datos al servidor
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Manipular el DOM para mostrar los datos en la página
-                    document.getElementById('nombreUsuario').textContent = data.nombre;
-                    document.getElementById('apellidoUsuario').textContent = data.apellido;
-                    document.getElementById('capiPoints').textContent = data.capiPoints;
-                })
-                .catch(error => console.error('Error:', error));
-        };
-        $(document).ready(function () {
-            $('#hamburger').click(function () {
-                $('.ui.sidebar').sidebar('toggle');
-            });
-        });
+    <!-- alerta2 -->
+    <div class="ui modal" id="alerta2"
+        style="display: none; width: 400px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        <i class="close icon" onclick="cerrarAlerta()"
+            style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
+        <div class="header"
+            style="background-color:#8B4513; color: #fff; padding: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            <div class="ui mini image" style="float: left;">
+                <img src="/logo.jpg" alt="Logo de la empresa" style="max-width: 40px;">
+            </div>
+            <div class="error-text" style="float: left; margin-left: 10px; font-size: 20px;">Error</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content" style="padding: 20px;">
+            <p id="alertaMessage2" class="ui header center aligned"></p>
+            <button class="ui button" onclick="regresar()">Regresar</button>
+        </div>
+    </div>
 
-        $(document).ready(function () {
-            $('#hamburger').click(function () {
-                $('.ui.sidebar').sidebar('toggle');
-            });
-            $('#user-dropdown').popup({
-                popup: '#user-dropdown-content',
-                on: 'click', // Change 'hover' to 'click'
-                position: 'bottom right',
-                exclusive: true,
-            });
-        });
-
-    </script>
-
-    <style>
-        .centered-content {
-            display: flex;
-            align-items: center;
-            margin-right: 40px;
-        }
-    </style>
 </body>
+<style>
+    .centered-content {
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+    }
+</style>
+
+<script>
+    window.onload = function () {
+        fetch('/usuario.html', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+            // Puedes agregar body si necesitas enviar datos al servidor
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Manipular el DOM para mostrar los datos en la página
+                document.getElementById('nombreUsuario').textContent = data.nombre;
+                document.getElementById('apellidoUsuario').textContent = data.apellido;
+                document.getElementById('capiPoints').textContent = data.capiPoints;
+            })
+            .catch(error => abrirAlerta2("Problemas tecnicos reinicie la pagina"));
+    };
+    $(document).ready(function () {
+        $('#hamburger').click(function () {
+            $('.ui.sidebar').sidebar('toggle');
+        });
+    });
+    $(document).ready(function () {
+        $('#miBoton').on('click', function () {
+            $('.ui.popup').popup('toggle');
+        });
+    });
+
+    $(document).ready(function () {
+        $('#hamburger').click(function () {
+            $('.ui.sidebar').sidebar('toggle');
+        });
+        $('#user-dropdown').popup({
+            popup: '#user-dropdown-content',
+            on: 'click', // Change 'hover' to 'click'
+            position: 'bottom right',
+            exclusive: true,
+        });
+    });
+
+    function abrirAlerta2(mensaje) {
+        document.getElementById("alertaMessage2").textContent = mensaje;
+        $('#alerta2').modal('show');
+    }
+    function cerrarAlerta() {
+        $('#alerta2').modal('hide');
+    }
+    function regresar() {
+        window.location.href = "/";
+    }
+
+</script>
 
 </html>

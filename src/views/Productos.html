@@ -27,7 +27,6 @@
                     alt="Logo CapiBrownies">
                 <div class="ui inverted icon buttons">
                     <button class="ui inverted button" id="miBoton"><i class="shopping cart icon"></i></button>
-    
                     <div class="ui flowing popup transition hidden">
                         <div class="ui three column divided center aligned grid">
                             <div class="column">
@@ -44,15 +43,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="ui inverted buttons">
-                            <button class="ui inverted button" id="miBoton"><i class="user icon"></i></button>
-                        </div>
-                        <div class="ui menu">
-                            <a class="browse item">
-                                Browse
-                                <i class="dropdown icon"></i>
-                            </a>
-                        </div>-->
                     <a class="ui inverted button" id="user-dropdown">
                         <i class="user icon"></i>
                     </a>
@@ -62,132 +52,89 @@
                             <a class="item" href="/usuario.html">Cuenta</a>
                             <a class="item">Preferencias</a>
                             <div class="divider"></div>
-                            <a class="item">Salir</a>
+                            <a class="item" href="/">Salir</a>
                         </div>
                     </div>
-    
-                    <!-- <div class="ui fluid popup bottom left transition hidden">
-                        <div class="ui four column relaxed equal height divided grid">
-                            <div class="column">
-                                <h4 class="ui header">Fabrics</h4>
-                                <div class="ui link list">
-                                    <a class="item">Cashmere</a>
-                                    <a class="item">Linen</a>
-                                    <a class="item">Cotton</a>
-                                    <a class="item">Viscose</a>
-                                </div>
-                            </div>
-                            <div class="column">
-                                <h4 class="ui header">Size</h4>
-                                <div class="ui link list">
-                                    <a class="item">Small</a>
-                                    <a class="item">Medium</a>
-                                    <a class="item">Large</a>
-                                    <a class="item">Plus Sizes</a>
-                                </div>
-                            </div>
-                            <div class="column">
-                                <h4 class="ui header">Colored</h4>
-                                <div class="ui link list">
-                                    <a class="item">Neutrals</a>
-                                    <a class="item">Brights</a>
-                                    <a class="item">Pastels</a>
-                                </div>
-                            </div>
-                            <div class="column">
-                                <h4 class="ui header">Types</h4>
-                                <div class="ui link list">
-                                    <a class="item">Knitwear</a>
-                                    <a class="item">Outerwear</a>
-                                    <a class="item">Pants</a>
-                                    <a class="item">Shoes</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
         <!-- Productos -->
-    
         <div class="ui four column doubling stackable grid container" style=" margin-top: 10px; ">
             <!-- Los productos se cargarán aquí desde JavaScript -->
-    
         </div>
-    
-        </div>
-    
-    
-        <div class="ui modal" id="alerta"
-            style="display: none; width: 400px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
-            <i class="close icon" onclick="cerrarAlerta()"
-                style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
-            <div class=" header"
-                style="background-color:#8B4513; color: #fff; padding: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
-                <div class="ui mini image" style="float: left;">
-                    <img src="/logo.jpg" alt="Logo de la empresa" style="max-width: 40px;">
-                </div>
-                <div class="error-text" style="float: left; margin-left: 10px; font-size: 20px;">Tu compra es:</div>
-                <div style="clear: both;"></div>
+    </div>
+
+    <!-- alerta -->
+    <div class="ui modal" id="alerta"
+        style="display: none; width: 400px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        <i class="close icon" onclick="cerrarAlerta()"
+            style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
+        <div class=" header"
+            style="background-color:#8B4513; color: #fff; padding: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            <div class="ui mini image" style="float: left;">
+                <img src="/logo.jpg" alt="Logo de la empresa" style="max-width: 40px;">
             </div>
-            <div class="content" style="padding: 20px;">
-                <p id="alertaMessage" class="ui header center aligned"></p>
-            </div>
+            <div class="error-text" style="float: left; margin-left: 10px; font-size: 20px;">Tu compra es:</div>
+            <div style="clear: both;"></div>
         </div>
-    
-        <br>
-        <!-- Footer -->
-        <div class="ui inverted vertical footer segment">
-            <div class="ui container">
-                <div class="ui stackable inverted divided equal height stackable grid">
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Contactos</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">
-                                <i class="envelope icon"></i> carlosk.garza@udem.edu
-                            </a>
-                            <a href="#" class="item">
-                                <i class="phone icon"></i> 1 81 1299 7559
-                            </a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Políticas</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">
-                                <i class="cookie bite icon"></i> Privacidad y cookies
-                            </a>
-                            <a href="#" class="item">
-                                <i class="file alternate icon"></i> Términos y condiciones
-                            </a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Compra presencial</h4>
-                        <div class="ui inverted link list">
-                            <a href="https://linktr.ee/capi_brownies" class="item" target="_blank">
-                                <i class="map marker alternate icon"></i> Ubicaciones</a>
-                            <a href="" class="item">
-                                <i class="calendar alternate icon"></i> Horarios</a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Redes Sociales</h4>
-                        <div class="ui inverted link list">
-                            <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
-                                <i class="tiktok icon"></i> Capi_Brownies
-                            </a>
-                            <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
-                                <i class="instagram icon"></i> CapiBrownies
-                            </a>
-                        </div>                        
+        <div class="content" style="padding: 20px;">
+            <p id="alertaMessage" class="ui header center aligned"></p>
+        </div>
+    </div>
+
+    <br>
+    <!-- Footer -->
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Contactos</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">
+                            <i class="envelope icon"></i> carlosk.garza@udem.edu
+                        </a>
+                        <a href="#" class="item">
+                            <i class="phone icon"></i> 1 81 1299 7559
+                        </a>
                     </div>
                 </div>
-                <br>
-                <br>
-                <p style="text-align: center;">CapiBrownies &copy; 2023</p>
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Políticas</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">
+                            <i class="cookie bite icon"></i> Privacidad y cookies
+                        </a>
+                        <a href="#" class="item">
+                            <i class="file alternate icon"></i> Términos y condiciones
+                        </a>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Compra presencial</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://linktr.ee/capi_brownies" class="item" target="_blank">
+                            <i class="map marker alternate icon"></i> Ubicaciones</a>
+                        <a href="" class="item">
+                            <i class="calendar alternate icon"></i> Horarios</a>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Redes Sociales</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
+                            <i class="tiktok icon"></i> Capi_Brownies
+                        </a>
+                        <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
+                            <i class="instagram icon"></i> CapiBrownies
+                        </a>
+                    </div>
+                </div>
             </div>
+            <br>
+            <br>
+            <p style="text-align: center;">CapiBrownies &copy; 2023</p>
         </div>
+    </div>
     </div>
 
     <script src="/productos.js"></script>
@@ -208,7 +155,7 @@
         });
         $('#user-dropdown').popup({
             popup: '#user-dropdown-content',
-            on: 'click', 
+            on: 'click',
             position: 'bottom right',
             exclusive: true,
         });
