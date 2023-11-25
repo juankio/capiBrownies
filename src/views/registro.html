@@ -67,45 +67,74 @@
             </form>
         </div>
     </div>
+
+    <!-- alerta -->
+    <div class="ui modal" id="alerta"
+        style="display: none; width: 400px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        <i class="close icon" onclick="cerrarAlerta()"
+            style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
+        <div class=" header"
+            style="background-color:#8B4513; color: #fff; padding: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            <div class="ui mini image" style="float: left;">
+                <img src="/logo.jpg" alt="Logo de la empresa" style="max-width: 40px;">
+            </div>
+            <div class="error-text" style="float: left; margin-left: 10px; font-size: 20px;">Error</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content" style="padding: 20px;">
+            <p id="alertaMessage" class="ui header center aligned"></p>
+        </div>
+    </div>
+    <!-- alerta2 -->
+    <div class="ui modal" id="alerta2"
+        style="display: none; width: 400px; background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        <i class="close icon" onclick="cerrarAlerta()"
+            style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>
+        <div class="header"
+            style="background-color:#8B4513; color: #fff; padding: 10px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            <div class="ui mini image" style="float: left;">
+                <img src="/logo.jpg" alt="Logo de la empresa" style="max-width: 40px;">
+            </div>
+            <div class="error-text" style="float: left; margin-left: 10px; font-size: 20px;">Error</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="content" style="padding: 20px;">
+            <p id="alertaMessage2" class="ui header center aligned"></p>
+            <button class="ui button" onclick="regresar()">Regresar</button>
+        </div>
+    </div>
+
 </body>
 <script>
 
     $("form").submit(function (e) {
         e.preventDefault();
+        const nombre = $("#name1").val();
+        const apellido = $("#apellido").val();
+        const correo = $("#email1").val();
+        const contra = $("#contra").val();
+        const contra2 = $("#contra2").val();
 
-        var password1 = document.getElementById("contra").value;
-        var password2 = document.getElementById("contra2").value;
-
-        if (password1 === password2) {
-            const nombre = $("#name1").val();
-            const apellido = $("#apellido").val();
-            const correo = $("#email1").val();
-            const contra = $("#contra").val();
-
-            // Serializa los datos del formulario como JSON
-            const data = {
-                nombre,
-                apellido,
-                correo,
-                contra,
-            };
-
-            $.ajax({
-                type: "POST",
-                url: "/registro.html",
-                data: JSON.stringify(data),
-                contentType: "application/json",
-                success: function (response) {
-                    window.location.href = "/registro.html";
-                },
-                error: function (error) {
-                    console.log("llega nombre", nombre);
-                    alert("Correo ya registrado");
-                }
-            });
-        } else {
-            alert('Las contraseñas no concuerdan.');
-        }
+        // Serializa los datos del formulario como JSON
+        const data = {
+            nombre,
+            apellido,
+            correo,
+            contra,
+            contra2
+        };
+        $.ajax({
+            type: "POST",
+            url: "/registro.html",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: function (response) {
+                abrirAlerta2("cuenta creada exitosa mente");
+            },
+            error: function (error) {
+                abrirAlerta("Algo salio mal vuelvalo a intentar");
+            }
+        });
     });
 
     $(document).ready(function () {
@@ -133,6 +162,26 @@
             }
         });
     });
+    // funciones para alerta 
+    function abrirAlerta(mensaje) {
+        document.getElementById("alertaMessage").textContent = mensaje;
+        $('#alerta').modal('show');
+    }
+    function cerrarAlerta() {
+        $('#alerta').modal('hide');
+    }
+
+
+    function abrirAlerta2(mensaje) {
+        document.getElementById("alertaMessage2").textContent = mensaje;
+        $('#alerta2').modal('show');
+    }
+    function cerrarAlerta() {
+        $('#alerta2').modal('hide');
+    }
+    function regresar() {
+        window.location.href = "/";
+    }
 
 </script>
 
