@@ -34,15 +34,13 @@ let connection;
     app.use('/public', express.static(path.join(__dirname, 'public')));
 
     app.use(express.json());
-
-
+    
     // Guardar la seccion 
     app.use(session({
       secret: 'capiBrownies-2x1-losJuevesdeEnero',
       resave: false,
       saveUninitialized: true,
     }));
-
 
 
     // ruta para paginas
@@ -170,9 +168,13 @@ let connection;
             apellido: result.outBinds.out_apellido,
             capiPoints: result.outBinds.out_capiPoints
         };
+        
+        console.log('>:)',userData)
 
         // Renderizar la página usuario.html con los datos
-        res.render('usuario', { usuario: userData });
+        // res.render('usuario', { usuario: userData });
+        res.status(200).json(userData);
+
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Error en el servidor.');

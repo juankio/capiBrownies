@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CapiBrownies - CapiPoints</title>
-    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <script src="../../semantic/dist/semantic.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
+    <script src="../../semantic/dist/semantic.min.js"></script>
 </head>
 
 <body class="stackable" style="background-color: #F4F3EE;">
@@ -24,7 +23,8 @@
                 <button class="ui inverted icon button" id="hamburger">
                     <i class="bars icon"></i>
                 </button>
-                <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg" alt="Logo CapiBrownies">
+                <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
+                    alt="Logo CapiBrownies">
                 <div class="ui inverted icon buttons" style="position: absolute; right: 10px;">
                     <a class="ui inverted button" href="#">
                         <i class="shopping cart icon"></i>
@@ -50,15 +50,16 @@
             <div class="ui segment">
                 <div class="ui grid">
                     <div class="three wide column">
-                        <img class="ui circular image" src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="User Avatar">
+                        <img class="ui circular image" src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+                            alt="User Avatar">
                     </div>
                     <div class="twelve wide column">
-                        <h2>User's Name</h2>
-                        <p>Email: user@example.com</p>
+                        <h2 id="nombreUsuario"></h2>
+                        <p id="apellidoUsuario"></p>
                     </div>
                 </div>
             </div>
-    
+
             <!-- Rewards Summary -->
             <div class="ui segment">
                 <h3>Resumen</h3>
@@ -66,7 +67,7 @@
                     <div class="column">
                         <div class="ui statistics">
                             <div class="statistic">
-                                <div class="value">100</div>
+                                <div class="value" id="capiPoints">100</div>
                                 <div class="label">Capicoins</div>
                             </div>
                         </div>
@@ -89,7 +90,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Available Offers -->
             <div class="ui segment">
                 <h3>Productos disponibles</h3>
@@ -97,7 +98,7 @@
                     <!-- Offer Item 1 -->
                     <div class="item">
                         <div class="image">
-                            <img src="offer_image1.jpg" alt="Offer Image">
+                            <img src="" alt="Offer Image">
                         </div>
                         <div class="content">
                             <a class="header">Capi-Galleta</a>
@@ -109,11 +110,11 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Offer Item 2 -->
                     <div class="item">
                         <div class="image">
-                            <img src="offer_image2.jpg" alt="Offer Image">
+                            <img src="" alt="Offer Image">
                         </div>
                         <div class="content">
                             <a class="header">Capi-Peluche</a>
@@ -129,7 +130,7 @@
                     <!-- Offer Item 3 -->
                     <div class="item">
                         <div class="image">
-                            <img src="offer_image2.jpg" alt="Offer Image">
+                            <img src="" alt="Offer Image">
                         </div>
                         <div class="content">
                             <a class="header">Capi-Playera</a>
@@ -189,7 +190,7 @@
                             <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
                                 <i class="instagram icon"></i> CapiBrownies
                             </a>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -200,6 +201,23 @@
     </div>
 
     <script>
+        window.onload = function () {
+            fetch('/usuario.html', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+                // Puedes agregar body si necesitas enviar datos al servidor
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Manipular el DOM para mostrar los datos en la página
+                    document.getElementById('nombreUsuario').textContent = data.nombre;
+                    document.getElementById('apellidoUsuario').textContent = data.apellido;
+                    document.getElementById('capiPoints').textContent = data.capiPoints;
+                })
+                .catch(error => console.error('Error:', error));
+        };
         $(document).ready(function () {
             $('#hamburger').click(function () {
                 $('.ui.sidebar').sidebar('toggle');
@@ -217,6 +235,7 @@
                 exclusive: true,
             });
         });
+
     </script>
 
     <style>
@@ -227,4 +246,5 @@
         }
     </style>
 </body>
+
 </html>
