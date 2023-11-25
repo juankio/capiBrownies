@@ -43,64 +43,59 @@ let connection;
     app.get('/index.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'index.html'));
     });
+
     app.get('/registro.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'registro.html'));
     });
   
-//     app.get('/registro.html', async (req, res) => {
-//     try {
-//         // Send the file after sending the response
-//         res.sendFile(path.join(__dirname, 'views', 'registro.html'));
-//         const { nombre, apellido, correo, contra } = req.body;
-//       console.log('>:)',nombre,apellido,correo,contra)
-      
-//         // Call the stored procedure
-//         // const result = await connection.execute(
-//         //     `BEGIN
-//         //         AGREGARUSUARIO(:in_nombre, :in_apellido, :in_correo, :in_contra);
-//         //     END;`,
-//         //     {
-//         //         in_nombre: nombre,
-//         //         in_apellido: apellido,
-//         //         in_correo: correo,
-//         //         in_contra: contra,
-//         //     }
-//         // );
+    app.post('/registro.html', async (req, res) => {
+      try{
+          const { nombre, apellido, correo, contra } = req.body;
+          console.log('Datos recibidos:', nombre, apellido, correo, contra)
 
-//         // console.log(result);
+          // Call the stored procedure
+          const result = await connection.execute(
+            `BEGIN
+                AGREGARUSUARIO(:in_nombre, :in_apellido, :in_correo, :in_contra);
+            END;`,
+            {
+                in_nombre: nombre,
+                in_apellido: apellido,
+                in_correo: correo,
+                in_contra: contra,
+            }
+          );
 
-//         // // If everything is successful, send a response
-//         // res.status(200).send('Usuario registrado correctamente.');
-//     }
-//      catch (error) {
-//       console.log('error')
-      
-//         // if (error.errorNum === 20002) {
-//         //     // Password mismatch error
-//         //     console.error('Password mismatch error:', error.message);
-//         //     // Send a response indicating the password mismatch
-//         //     res.status(400).send('Las contraseñas no concuerdan.');
-//         // } else {
-//         //     // Other errors
-//         //     console.error('Error:', error);
-//         //     // Send a generic error response
-//         //     res.status(500).send('Error en el servidor.');
-//         // }
-//     }
-// });
-app.post('/registro.html', async (req, res) => {
-  const { nombre, apellido, correo, contra } = req.body;
-  console.log('Datos recibidos:', nombre, apellido, correo, contra);
+          const result2 = await connection.execute(
+            `BEGIN
+                ASIGNARCARRITO(:in_correo);
+            END;`,
+            {
+                in_correo: correo,
+            }
+          );
 
-  // Resto del código para manejar los datos...
-});
-  
-    
-    
-    
-    
-    
+        console.log("Exito");
 
+        // If everything is successful, send a response
+        res.redirect('/index.html');
+
+        } catch (error) {
+        if (error.errorNum === 20001) {
+            // Password mismatch error
+            console.error('Password mismatch error:', error.message);
+            // Send a response indicating the password mismatch
+            res.status(400).send('El correo ya esta registrado.');
+        } else {
+            // Other errors
+            console.error('Error:', error);
+            // Send a generic error response
+            res.status(500).send('Error en el servidor.');
+          }
+        }
+      });
+    
+    
     app.get('/productos.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'Productos.html'));
     });
