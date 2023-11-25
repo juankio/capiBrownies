@@ -38,7 +38,7 @@ let connection;
 
     // Guardar la seccion 
     app.use(session({
-      secret: 'your-secret-key',
+      secret: 'capiBrownies-2x1-losJuevesdeEnero',
       resave: false,
       saveUninitialized: true,
     }));
@@ -122,10 +122,7 @@ let connection;
         console.log("Exito");
 
 
-        const usuarioId = result.outBinds.out_usuario_id;
-        req.session.usuarioId = usuarioId;
-
-        
+        res.redirect('/index.html');
 
         } catch (error) {
         if (error.errorNum === 20001) {
@@ -149,6 +146,10 @@ let connection;
 
 
     app.get('/usuario.html', async (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'usuario.html'));
+    });
+
+    app.post('/usuario.html', async (req, res) => {
     try {
         const usuarioId = req.session.usuarioId;
         // Llamar al procedimiento almacenado
@@ -211,16 +212,6 @@ let connection;
 
     app.get('/logo.jpg', (req, res) => {
       res.sendFile(path.join(__dirname, 'img', 'logo2.png'));
-    });
-
-    // POST
-    app.post('/', (req, res) => {
-      const { usuario, contrasena } = req.body;
-      if (usuario === 'correo@example.com' && contrasena === 'password') {
-        res.status(200).json({ mensaje: 'Credenciales correctas' });
-      } else {
-        res.status(401).json({ mensaje: 'Credenciales incorrectas' });
-      }
     });
     
     app.listen(port, () => console.log('Server is running on port', port));
