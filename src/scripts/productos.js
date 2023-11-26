@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
             </div>
-            <img style="height: 100%; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" src="${producto.imagen}">
+            <img style="height: 200px; width: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" src="${producto.imagen}">
         </div>
         <div class="content">
                 <a class="header" href="#" style="margin-bottom: 10px;">${producto.nombre}</a>
