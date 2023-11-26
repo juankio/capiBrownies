@@ -37,7 +37,7 @@
                             <div class="ui label">
                                 <i class="ui lock icon" style="margin: 0.3em;"></i>
                             </div>
-                            <input type="password" name="contrasena" id="contra" placeholder="Contraseña">
+                            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña">
                             <div class="ui label">
                                 <i class="ui low vision icon link" style="margin: 0.3em;" id="mostrarContra"></i>
                             </div>
@@ -79,7 +79,7 @@
     <script>
         $(document).ready(function () {
             const mostrarContra = document.getElementById("mostrarContra");
-            const password = document.getElementById("contra");
+            const password = document.getElementById("contrasena");
 
             mostrarContra.addEventListener("click", function () {
                 if (password.type === "password") {
