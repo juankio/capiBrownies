@@ -3,16 +3,174 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Base64 a Imagen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapiBrownies - Inicio</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
+    <script src="../../semantic/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
-<body>
-    <!-- Aquí se mostrará la imagen -->
-    <img id="imagenBase64" alt="Imagen desde Base64">
+<body class="stackable" style="background-color: #F4F3EE;">
+    <!-- Sidebar -->
+    <div class="ui inverted vertical sidebar menu">
+        <a class="item" href="index.html">Inicio</a>
+        <a class="item" href="Productos.html">Productos</a>
+        <a class="active item" href="#">Conócenos</a>
+    </div>
+    <div class="pusher" style="background-color: #F4F3EE;">
+        <div class="ui segment" style="background-color: #4b2d19;">
+            <div class="centered-content">
+                <button class="ui inverted icon button" id="despegable">
+                    <i class="bars icon"></i>
+                </button>
+                <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
+                    alt="Logo CapiBrownies">
+                <div class="ui inverted icon buttons" style="position: absolute; right: 10px;">
+                    <a class="ui inverted button" href="#">
+                        <i class="shopping cart icon"></i>
+                    </a>
+                    <a class="ui inverted button" id="user-dropdown">
+                        <i class="user icon"></i>
+                    </a>
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content -->
+                        <div class="ui vertical inverted menu">
+                            <a class="item" href="/usuario.html">Cuenta</a>
+                            <a class="item">Preferencias</a>
+                            <div class="divider"></div>
+                            <a class="item" href="/">Salir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="ui container segment">
+            <h2>Misión</h2>
+            <p>Ofrecer brownies de la más alta calidad, utilizando ingredientes frescos y deliciosos, horneados con dedicación, para brindar una experiencia de sabor única a nuestros clientes. Buscamos ser la primera opción para los amantes del chocolate.</p>
+        </div>
+        
+        <div class="ui container segment">
+            <h2>Visión</h2>
+            <p>Ser la pastelería líder y referente en brownies en Nuevo León, distinguiéndonos por nuestra calidad, variedad de sabores y servicio excepcional, expandiendo nuestra presencia tanto en universidades como a nivel estatal.</p>
+        </div>
+        
+        <div class="ui container segment">
+            <h2>Valores</h2>
+            <ul>
+                <li><b>Calidad: </b>Utilizamos solo ingredientes frescos y de primera para hornear brownies deliciosos.</li>
+                <li><b>Variedad: </b>Ofrecemos una amplia selección de sabores de brownies para satisfacer diferentes gustos.</li>
+                <li><b>Servicio: </b>Brindamos una atención personalizada, resolviendo dudas y entregando pedidos puntualmente.</li>
+                <li><b>Compromiso: </b>Nos comprometemos con estándares altos de higiene y preparación de nuestros productos.</li>
+                <li><b>Innovación: </b>Desarrollamos nuevas variedades de brownies, adaptándonos a las tendencias y preferencias de los clientes.</li>
+                <li><b>Pasión: </b>Preparamos nuestros brownies con dedicación, enfocados en superar las expectativas de nuestros clientes.</li>
+            </ul>
+        </div>
+        
+        <br>
+        <!-- Footer -->
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Contactos</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">
+                                <i class="envelope icon"></i> carlosk.garza@udem.edu
+                            </a>
+                            <a href="#" class="item">
+                                <i class="phone icon"></i> 1 81 1299 7559
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Políticas</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">
+                                <i class="cookie bite icon"></i> Privacidad y cookies
+                            </a>
+                            <a href="#" class="item">
+                                <i class="file alternate icon"></i> Términos y condiciones
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Compra presencial</h4>
+                        <div class="ui inverted link list">
+                            <a href="https://linktr.ee/capi_brownies" class="item" target="_blank">
+                                <i class="map marker alternate icon"></i> Ubicaciones</a>
+                            <a href="" class="item">
+                                <i class="calendar alternate icon"></i> Horarios</a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Redes Sociales</h4>
+                        <div class="ui inverted link list">
+                            <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
+                                <i class="tiktok icon"></i> Capi_Brownies
+                            </a>
+                            <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
+                                <i class="instagram icon"></i> CapiBrownies
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <p style="text-align: center;">CapiBrownies &copy; 2023</p>
+            </div>
+        </div>
+    </div>
+
 
     <script>
-        
+        $(document).ready(function () {
+            $('#despegable').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+        });
+
+        $(document).ready(function () {
+            $('#hamburger').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+            $('#user-dropdown').popup({
+                popup: '#user-dropdown-content',
+                on: 'click',
+                position: 'bottom right',
+                exclusive: true,
+            });
+        });
+
+        $('.special.cards .image').dimmer({
+            on: 'ontouchstart' in document.documentElement ? 'click' : 'hover'
+        });
     </script>
+
+    <style>
+        .centered-content {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2 {
+            margin-bottom: 10px; /* Espaciado debajo de los encabezados */
+        }
+        
+        ul {
+            margin-top: 5px; /* Espaciado encima de la lista de valores */
+            margin-bottom: 15px; /* Espaciado debajo de la lista de valores */
+        }
+    </style>
 </body>
 
 </html>

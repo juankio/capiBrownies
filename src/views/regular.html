@@ -13,42 +13,166 @@
 </head>
 </head>
 
-<body>
-
-    <header>
-        <h1>Product Name</h1>
-    </header>
-
-    <main>
-        <section class="product-details">
-            <div class="product-image">
-                <img src="path/to/your/product-image.jpg" alt="Product Image">
+<body class="stackable" style="background-color: #F4F3EE;">
+    <!-- Sidebar -->
+    <div class="ui inverted vertical sidebar menu">
+        <a class="item" href="index.html">Inicio</a>
+        <a class="active item" href="Productos.html">Productos</a>
+        <a class="item" href="conocenos.html">Conócenos</a>
+    </div>
+    <div class="pusher" style="background-color: #F4F3EE;">
+        <div class="ui segment" style="background-color: #4b2d19;">
+            <div class="centered-content">
+                <button class="ui inverted icon button" id="hamburger">
+                    <i class="bars icon"></i>
+                </button>
+                <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
+                    alt="Logo CapiBrownies">
+                <div class="ui inverted icon buttons">
+                    <button class="ui inverted button" id="miBoton"><i class="shopping cart icon"></i></button>
+                    <div class="ui flowing popup transition hidden">
+                        <div class="ui three column divided center aligned grid">
+                            <div class="column">
+                                <div class="ui segment" style="max-height: 100%; right: 145px; width: 400px;">
+                                    <h2 class="ui header">Carrito
+                                        de Compras</h2>
+                                    <div class="ui raised segment">
+                                        <ul id="lista-carrito" class="ui list relaxed divided">
+                                            <!-- Aquí se mostrarán los productos agregados -->
+                                        </ul>
+                                        <p>Total: <span id="total" class="ui header">$0</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="ui inverted button" id="user-dropdown">
+                        <i class="user icon"></i>
+                    </a>
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content goes here -->
+                        <div class="ui vertical inverted menu">
+                            <a class="item" href="/usuario.html">Cuenta</a>
+                            <a class="item">Preferencias</a>
+                            <div class="divider"></div>
+                            <a class="item" href="/">Salir</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="product-info">
-                <h2>Product Description</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p><strong>Price:</strong> $19.99</p>
-                <button id="add-to-cart">Add to Cart</button>
+        </div>
+        <header class="ui container">
+            <h1 class="ui header">Product Name</h1>
+        </header>
+    
+        <main class="ui container">
+            <section class="ui segment product-details">
+                <div class="ui two column grid">
+                    <div class="column">
+                        <div class="product-image">
+                            <img class="ui fluid image" src="path/to/your/product-image.jpg" alt="Product Image">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="product-info">
+                            <h2 class="ui header">Product Description</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>Precio:</strong> $55.00</p>
+                            <button class="ui brown button" id="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="ui segment product-reviews">
+                <h2 class="ui header">Product Reviews</h2>
+                <ul class="ui list">
+                    <li>
+                        <strong>User123:</strong> Excellent product! I love it.
+                    </li>
+                    <li>
+                        <strong>HappyCustomer:</strong> This is exactly what I was looking for.
+                    </li>
+                </ul>
+            </section>
+        </main>
+    
+        <br>
+        <!-- Footer -->
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Contactos</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">
+                                <i class="envelope icon"></i> carlosk.garza@udem.edu
+                            </a>
+                            <a href="#" class="item">
+                                <i class="phone icon"></i> 1 81 1299 7559
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Políticas</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">
+                                <i class="cookie bite icon"></i> Privacidad y cookies
+                            </a>
+                            <a href="#" class="item">
+                                <i class="file alternate icon"></i> Términos y condiciones
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Compra presencial</h4>
+                        <div class="ui inverted link list">
+                            <a href="https://linktr.ee/capi_brownies" class="item" target="_blank">
+                                <i class="map marker alternate icon"></i> Ubicaciones</a>
+                            <a href="" class="item">
+                                <i class="calendar alternate icon"></i> Horarios</a>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <h4 class="ui inverted header">Redes Sociales</h4>
+                        <div class="ui inverted link list">
+                            <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
+                                <i class="tiktok icon"></i> Capi_Brownies
+                            </a>
+                            <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
+                                <i class="instagram icon"></i> CapiBrownies
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <p style="text-align: center;">CapiBrownies &copy; 2023</p>
             </div>
-        </section>
-
-        <section class="product-reviews">
-            <h2>Product Reviews</h2>
-            <ul>
-                <li>
-                    <strong>User123:</strong> Excellent product! I love it.
-                </li>
-                <li>
-                    <strong>HappyCustomer:</strong> This is exactly what I was looking for.
-                </li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Your Company</p>
-    </footer>
+        </div>
+    </div>
 
 </body>
+
+<style>
+    .centered-content {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('#hamburger').click(function () {
+            $('.ui.sidebar').sidebar('toggle');
+        });
+        $('#user-dropdown').popup({
+            popup: '#user-dropdown-content',
+            on: 'click',
+            position: 'bottom right',
+            exclusive: true,
+        });
+    });
+</script>
 
 </html>
