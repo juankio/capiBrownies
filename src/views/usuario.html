@@ -253,6 +253,7 @@
             .then(data => {
                 // Manipular el DOM para mostrar los datos en la página
                 document.getElementById('nombreUsuario').textContent = data.nombre;
+                document.getElementById('apellidoUsuario').textContent = data.apellido;
                 document.getElementById('correoUsuario').textContent = data.correo;
                 document.getElementById('capiPoints').textContent = data.capiPoints;
             })

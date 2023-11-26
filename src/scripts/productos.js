@@ -5,15 +5,17 @@ const productos = [
     {
         nombre: "Regular",
         imagen: "/brwnie.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
-            { nombre: "Paquete de 10", precio: 500.00 },
+            { nombre: "Paquete de 10", precio: 400.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
         nombre: "Nuez",
         imagen: "/galleta.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "Paquete de 10", precio: 400.00 },
@@ -23,6 +25,7 @@ const productos = [
     {
         nombre: "Nutella",
         imagen: "/nutella.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "Paquete de 10", precio: 400.00 },
@@ -32,6 +35,7 @@ const productos = [
     {
         nombre: "Coco",
         imagen: "/coco.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "Paquete de 10", precio: 400.00 },
@@ -41,6 +45,7 @@ const productos = [
     {
         nombre: "Zebra",
         imagen: "/zebra.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 45.00 },
             { nombre: "Paquete de 10", precio: 400.00 },
@@ -50,27 +55,30 @@ const productos = [
     {
         nombre: "Oreo",
         imagen: "/oreo.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
-            { nombre: "Paquete de 10", precio: 450.00 },
+            { nombre: "Paquete de 10", precio: 100.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
         nombre: "Cheesecake",
         imagen: "/cheesecake.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 50.00 },
-            { nombre: "Paquete de 10", precio: 450.00 },
+            { nombre: "Paquete de 10", precio: 100.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
     {
         nombre: "Brookie",
         imagen: "/brookie.jpg",
+        descripcion:"",
         tamanos: [
             { nombre: "Invidual", precio: 55.00 },
-            { nombre: "Paquete de 10", precio: 500.00 },
+            { nombre: "Paquete de 10", precio: 100.00 },
             { nombre: "Mega Brownie", precio: 100.00 }
         ]
     },
@@ -90,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
         <div class="ui special cards">
     <div class="card">
-        <div class="blurring dimmable image" style="height: 260px; width: 100%; overflow: hidden; position: relative;">
+        <div class="blurring dimmable image" style="height: 200px; width: 100%; overflow: hidden; position: relative;">
             <div class="ui dimmer">
                 <div class="content">
                     <div class="center">
@@ -164,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const listItem = document.createElement('li');
             listItem.classList.add('item');
             listItem.innerHTML = `
-            <div class="ui image">
+            <div class="ui image" >
                 <img src="${producto.imagen}" alt="Imagen del producto" style="max-width: 100px; max-height: 50px;">
             </div>
             <div class="content">
