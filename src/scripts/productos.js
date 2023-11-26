@@ -4,82 +4,90 @@
 const productos = [
     {
         nombre: "Regular",
+        id: 1,
         imagen: "/brwnie.jpg",
-        descripcion:"",
+        descripcion:"Delicioso Capibrownie clásico, perfecto para acompañar tu café o té. Cada bocado te sumerge en la ternura de las capibaras, transformando tu momento de disfrute en una experiencia única.",
         tamanos: [
-            { nombre: "Invidual", precio: 55.00 },
-            { nombre: "Paquete de 10", precio: 400.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 1, precio: 55.00 },
+            { nombre: "Paquete de 10", id: 7, precio: 400.00 },
+            { nombre: "Mega Brownie", id: 3, precio: 100.00 }
         ]
     },
     {
         nombre: "Nuez",
+        id: 2,
         imagen: "/galleta.jpg",
-        descripcion:"",
+        descripcion:"Capibrownie crujiente con trozos de nuez, una combinación irresistible de texturas y sabores. ",
         tamanos: [
-            { nombre: "Invidual", precio: 45.00 },
-            { nombre: "Paquete de 10", precio: 400.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 4,  precio: 45.00 },
+            { nombre: "Paquete de 10", id: 2, precio: 400.00 },
+            { nombre: "Mega Brownie",id: 3, precio: 100.00 }
         ]
     },
     {
         nombre: "Nutella",
+        id: 3,
         imagen: "/nutella.jpg",
-        descripcion:"",
+        descripcion:"Exquisito Capibrownie relleno con la deliciosa crema de avellanas Nutella, un placer supremo para los amantes del chocolate. Vive la experiencia capibara con cada porción indulgente.",
         tamanos: [
-            { nombre: "Invidual", precio: 45.00 },
-            { nombre: "Paquete de 10", precio: 400.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 4,  precio: 45.00 },
+            { nombre: "Paquete de 10", id: 2, precio: 400.00 },
+            { nombre: "Mega Brownie", id: 3, precio: 100.00 }
         ]
     },
     {
         nombre: "Coco",
+        id: 4,
         imagen: "/coco.jpg",
-        descripcion:"",
+        descripcion:"Capibrownie con sabor a coco, ideal para aquellos que buscan un toque tropical en sus postres. Descubre la suavidad y dulzura que solo las capibaras pueden ofrecer en esta deliciosa creación.        ",
         tamanos: [
-            { nombre: "Invidual", precio: 45.00 },
-            { nombre: "Paquete de 10", precio: 400.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 4, precio: 45.00 },
+            { nombre: "Paquete de 10", id: 2, precio: 400.00 },
+            { nombre: "Mega Brownie", id: 3,precio: 100.00 }
         ]
     },
     {
         nombre: "Zebra",
+        id: 5,
         imagen: "/zebra.jpg",
-        descripcion:"",
+        descripcion:"Capibrownie con rayas de chocolate blanco y negro, una mezcla armoniosa de sabores intensos. Siente la diversión y la ternura de las capibaras en cada mordisco de esta galleta única.",
         tamanos: [
-            { nombre: "Invidual", precio: 45.00 },
-            { nombre: "Paquete de 10", precio: 400.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 4, precio: 45.00 },
+            { nombre: "Paquete de 10", id: 2, precio: 400.00 },
+            { nombre: "Mega Brownie", id: 3,precio: 100.00 }
         ]
     },
     {
         nombre: "Oreo",
+        id: 6,
         imagen: "/oreo.jpg",
-        descripcion:"",
+        descripcion:"Clásico Capibrownie en forma de galleta sandwich con relleno de crema, un favorito atemporal para todas las edades. Deja que la dulzura de las capibaras se convierta en el ingrediente secreto de tu momento de placer.",
         tamanos: [
-            { nombre: "Invidual", precio: 50.00 },
-            { nombre: "Paquete de 10", precio: 100.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 5, precio: 50.00 },
+            { nombre: "Paquete de 10", id: 6, precio: 450.00 },
+            { nombre: "Mega Brownie", id: 3,precio: 100.00 }
         ]
     },
     {
         nombre: "Cheesecake",
+        id: 7,
         imagen: "/cheesecake.jpg",
-        descripcion:"",
+        descripcion:"Capibrownie con sabor a pastel de queso, una deliciosa experiencia que te transportará a la tradición de los postres. Disfruta de la suavidad y ternura que solo las capibaras pueden agregar a esta delicia.",
         tamanos: [
-            { nombre: "Invidual", precio: 50.00 },
-            { nombre: "Paquete de 10", precio: 100.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 5, precio: 50.00 },
+            { nombre: "Paquete de 10", id: 6, precio: 450.00 },
+            { nombre: "Mega Brownie", id: 3, precio: 100.00 }
         ]
     },
     {
         nombre: "Brookie",
+        id: 8,
         imagen: "/brookie.jpg",
-        descripcion:"",
+        descripcion:"La combinación perfecta entre Capibrownie y galleta, para los amantes de los dulces decadentes. Sumérgete en la fusión de sabores y texturas, donde la magia de las capibaras se une a la indulgencia del brownie y la galleta.",
         tamanos: [
-            { nombre: "Invidual", precio: 55.00 },
-            { nombre: "Paquete de 10", precio: 100.00 },
-            { nombre: "Mega Brownie", precio: 100.00 }
+            { nombre: "Invidual", id: 1, precio: 55.00 },
+            { nombre: "Paquete de 10", id: 7, precio: 500.00 },
+            { nombre: "Mega Brownie", id: 3, precio: 100.00 }
         ]
     },
 
