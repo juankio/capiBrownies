@@ -89,6 +89,10 @@ let connection;
     app.get('/registro.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'registro.html'));
     });
+
+    app.get('/regular.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'regular.html'));
+    });
   
     app.post('/registro.html', async (req, res) => {
       try{
