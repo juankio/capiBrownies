@@ -66,7 +66,7 @@
                     </div>
                     <div class="twelve wide column">
                         <h2 id="nombreUsuario"></h2>
-                        <p id="apellidoUsuario"></p>
+                        <p id="correoUsuario"></p>
                     </div>
                 </div>
             </div>
@@ -252,7 +252,7 @@
             .then(data => {
                 // Manipular el DOM para mostrar los datos en la página
                 document.getElementById('nombreUsuario').textContent = data.nombre;
-                document.getElementById('apellidoUsuario').textContent = data.apellido;
+                document.getElementById('correoUsuario').textContent = data.correo;
                 document.getElementById('capiPoints').textContent = data.capiPoints;
             })
             .catch(error => abrirAlerta2("Problemas tecnicos reinicie la pagina"));

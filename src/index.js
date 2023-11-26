@@ -154,18 +154,18 @@ let connection;
         const usuarioId = req.session.usuarioId;
         // Llamar al procedimiento almacenado
         const result = await connection.execute(
-            'BEGIN ObtenerCapiPoints(:in_usuario_id, :out_nombre, :out_apellido, :out_capiPoints); END;',
+            'BEGIN ObtenerCapiPoints(:in_usuario_id, :out_nombre, :out_correo, :out_capiPoints); END;',
             {
                 in_usuario_id: usuarioId,
                 out_nombre: { type: oracledb.STRING, dir: oracledb.BIND_OUT },
-                out_apellido: { type: oracledb.STRING, dir: oracledb.BIND_OUT },
+                out_correo: { type: oracledb.STRING, dir: oracledb.BIND_OUT },
                 out_capiPoints: { type: oracledb.NUMBER, dir: oracledb.BIND_OUT }
             }
         );
 
         const userData = {
             nombre: result.outBinds.out_nombre,
-            apellido: result.outBinds.out_apellido,
+            correo: result.outBinds.out_correo,
             capiPoints: result.outBinds.out_capiPoints
         };
         
