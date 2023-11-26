@@ -6,6 +6,7 @@ const productos = [
         nombre: "Regular",
         id: 1,
         imagen: "/brwnie.jpg",
+        cantidad: 0,
         descripcion:"Delicioso Capibrownie clásico, perfecto para acompañar tu café o té. Cada bocado te sumerge en la ternura de las capibaras, transformando tu momento de disfrute en una experiencia única.",
         tamanos: [
             { nombre: "Invidual", id: 1, precio: 55.00 },
@@ -17,6 +18,7 @@ const productos = [
         nombre: "Nuez",
         id: 2,
         imagen: "/galleta.jpg",
+        cantidad: 0,
         descripcion:"Capibrownie crujiente con trozos de nuez, una combinación irresistible de texturas y sabores. ",
         tamanos: [
             { nombre: "Invidual", id: 4,  precio: 45.00 },
@@ -28,6 +30,7 @@ const productos = [
         nombre: "Nutella",
         id: 3,
         imagen: "/nutella.jpg",
+        cantidad: 0,
         descripcion:"Exquisito Capibrownie relleno con la deliciosa crema de avellanas Nutella, un placer supremo para los amantes del chocolate. Vive la experiencia capibara con cada porción indulgente.",
         tamanos: [
             { nombre: "Invidual", id: 4,  precio: 45.00 },
@@ -39,6 +42,7 @@ const productos = [
         nombre: "Coco",
         id: 4,
         imagen: "/coco.jpg",
+        cantidad: 0,
         descripcion:"Capibrownie con sabor a coco, ideal para aquellos que buscan un toque tropical en sus postres. Descubre la suavidad y dulzura que solo las capibaras pueden ofrecer en esta deliciosa creación.        ",
         tamanos: [
             { nombre: "Invidual", id: 4, precio: 45.00 },
@@ -50,6 +54,7 @@ const productos = [
         nombre: "Zebra",
         id: 5,
         imagen: "/zebra.jpg",
+        cantidad: 0,
         descripcion:"Capibrownie con rayas de chocolate blanco y negro, una mezcla armoniosa de sabores intensos. Siente la diversión y la ternura de las capibaras en cada mordisco de esta galleta única.",
         tamanos: [
             { nombre: "Invidual", id: 4, precio: 45.00 },
@@ -61,6 +66,7 @@ const productos = [
         nombre: "Oreo",
         id: 6,
         imagen: "/oreo.jpg",
+        cantidad: 0,
         descripcion:"Clásico Capibrownie en forma de galleta sandwich con relleno de crema, un favorito atemporal para todas las edades. Deja que la dulzura de las capibaras se convierta en el ingrediente secreto de tu momento de placer.",
         tamanos: [
             { nombre: "Invidual", id: 5, precio: 50.00 },
@@ -72,6 +78,7 @@ const productos = [
         nombre: "Cheesecake",
         id: 7,
         imagen: "/cheesecake.jpg",
+        cantidad: 0,
         descripcion:"Capibrownie con sabor a pastel de queso, una deliciosa experiencia que te transportará a la tradición de los postres. Disfruta de la suavidad y ternura que solo las capibaras pueden agregar a esta delicia.",
         tamanos: [
             { nombre: "Invidual", id: 5, precio: 50.00 },
@@ -83,6 +90,7 @@ const productos = [
         nombre: "Brookie",
         id: 8,
         imagen: "/brookie.jpg",
+        cantidad: 0,
         descripcion:"La combinación perfecta entre Capibrownie y galleta, para los amantes de los dulces decadentes. Sumérgete en la fusión de sabores y texturas, donde la magia de las capibaras se une a la indulgencia del brownie y la galleta.",
         tamanos: [
             { nombre: "Invidual", id: 1, precio: 55.00 },
@@ -128,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="default text">Tamaño</div>
                             <div class="menu" id="tamano${index}">
                                 ${producto.tamanos.map(tamano => `
-                                    <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
+                                    <div class="item" data-value="${tamano.precio}">${tamano.nombre}>${tamano.cantidad}</div>
                                 `).join('')}
                             </div>
                         </div>
