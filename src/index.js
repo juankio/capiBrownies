@@ -97,6 +97,34 @@ let connection;
     app.get('/regular.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'regular.html'));
     });
+
+    app.get('/nuez.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'nuez.html'));
+    });
+    
+    app.get('/nutella.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'nutella.html'));
+    });
+    
+    app.get('/coco.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'coco.html'));
+    });
+    
+    app.get('/zebra.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'zebra.html'));
+    });
+    
+    app.get('/oreo.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'oreo.html'));
+    });
+    
+    app.get('/cheesecake.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'cheesecake.html'));
+    });
+    
+    app.get('/brookie.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'brookie.html'));
+    });
   
     app.post('/registro.html', async (req, res) => {
       try{
