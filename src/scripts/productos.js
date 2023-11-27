@@ -104,6 +104,7 @@ const productos = [
 document.addEventListener("DOMContentLoaded", function () {
     const productosContainer = document.querySelector('.ui.grid.container');
     const carrito = [];
+    const carrito2 = [];
     const listaCarrito = document.getElementById('lista-carrito');
     const totalCarrito = document.getElementById('total');
 
@@ -118,9 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="ui dimmer">
                 <div class="content">
                     <div class="center">
-                        <div class="ui inverted button carrito" id="compra${index}">
+                        <button class="ui inverted button carrito"  type="submit"  id="compra${index}">
                             <i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -136,14 +137,14 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="default text">Tamaño</div>
                             <div class="menu" id="tamano${index}">
                                 ${producto.tamanos.map(tamano => `
-                                    <div class="item" data-value="${tamano.precio}">${tamano.nombre}>${tamano.cantidad}</div>
+                                    <div class="item" data-value="${tamano.precio}">${tamano.nombre}</div>
                                 `).join('')}
                             </div>
                         </div>
                     </div>
                     <div class="content">
                         $<p id="price${index}" style="display: inline; margin-right: 10px;">${producto.tamanos[0].precio}</p>
-                    </div>
+                        </div>
                     <div class="extra content">
                         <button class="ui secondary button compra" style="margin-top: 10px;">
                             <a href="#" style="color: #F4F3EE;">Comprar</a>
@@ -162,24 +163,50 @@ document.addEventListener("DOMContentLoaded", function () {
         const botonCarrito = card.querySelector('.carrito');
         const botonCompra = card.querySelector('.compra');
         const priceParagraph = card.querySelector(`#price${index}`);
-        const tamano = card.querySelector(`#tamano${index}`);
+        const tamano = card.querySelector(`tamano${index}`);
+        console.log('>:)',tamano)
         
         botonCompra.addEventListener("click", function () {
-            const tamanoPrueba=priceParagraph.textContent == 100 ? '3 personas' : 'Individual'
+            const tamanoPrueba = priceParagraph.textContent == 100 ? '10 personas' : priceParagraph.textContent >= 400 ? 'Mega' : 'Individual';
             console.log("2   "+ tamanoPrueba)
             
-            abrirAlerta(`${producto.imagen} ${producto.nombre} +${tamanoPrueba}+${priceParagraph.textContent}`);
+            abrirAlerta(`${producto.imagen} ${producto.nombre} +${tamanoPrueba}+${priceParagraph.textContent}+${producto.tamanos.id}`);
         });
         botonCarrito.addEventListener("click", function () {
-            const tamanoPrueba=priceParagraph.textContent == 100 ? '3 personas' : 'Individual'
+            const tamanoPrueba = priceParagraph.textContent == 100 ? '10 personas' : priceParagraph.textContent >= 400 ? 'Mega' : 'Individual';
             agregarAlCarrito(producto, tamanoPrueba, priceParagraph.textContent);
         });
     });
     function agregarAlCarrito(producto, tamanoPrueba, precio) {
+        const prueba = producto.tamanos.map(tamano => tamano.id)
         carrito.push({ nombre: producto.nombre, tamanoPrueba, precio, imagen:producto.imagen});
         mostrarCarrito();
+        enviarDatosAlServidor(precio,  producto.id);
     }
-
+    function enviarDatosAlServidor( precio, id) {
+        $("carrito").submit(function (e) {
+            e.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+            
+            // Serializa los datos del formulario como JSON
+            const data = {
+                precio,
+                id
+            };
+    
+            $.ajax({
+                type: "POST",
+                url: "/registro.html",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (response) {
+                    abrirAlerta2("cuenta creada exitosa mente");
+                },
+                error: function (error) {
+                    abrirAlerta("Algo salio mal vuelvalo a intentar");
+                }
+            });
+        });
+    }
     function mostrarCarrito() {
         listaCarrito.innerHTML = '';
         let total = 0;
@@ -219,6 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     
         totalCarrito.textContent = total.toFixed(2);
+
     }
     // Agrega el controlador de eventos para el botón de compra aquí
     // ...
@@ -227,7 +255,6 @@ document.addEventListener("DOMContentLoaded", function () {
             $('.ui.sidebar').sidebar('toggle');
         });
     });
-
     $('.special.cards .image').dimmer({
         on: 'ontouchstart' in document.documentElement ? 'click' : 'hover'
     });
