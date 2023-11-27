@@ -219,6 +219,110 @@ let connection;
     }
   });
 
+
+  app.post('/agregarCarrito', async (req, res) => {
+    try {
+        const usuarioId = req.session.usuarioId;
+
+        // Llamar al procedimiento almacenado para obtener el carrito_id
+        const resultCarritoId = await connection.execute(
+            `
+            DECLARE
+                v_usuario_id carrito.usuario_id%TYPE := :usuarioId;
+                v_carrito_id carrito.carrito_id%TYPE;
+            BEGIN
+                regresaCarritoID(v_usuario_id, v_carrito_id);
+                :carritoId := v_carrito_id;
+            END;
+            `,
+            {
+                usuarioId: usuarioId,
+                carritoId: { dir: oracledb.BIND_OUT, type: oracledb.NUMBER },
+            }
+        );
+
+        const carritoId = resultCarritoId.outBinds.carritoId;
+
+        // Obtener otros datos del cuerpo de la solicitud
+        const data = req.body;
+
+        // Acceder a los datos recibidos
+        const precio = data.precio;
+        const id = data.id;
+
+        // Llamar al procedimiento almacenado insert_productos_carrito
+        await connection.execute(
+            `
+            BEGIN
+                insert_productos_carrito(:carritoId, :id, :precio);
+            END;
+            `,
+            {
+                carritoId: carritoId,
+                id: id,
+                precio: precio,
+            }
+        );
+
+        res.status(200).json({ message: 'Producto agregado al carrito exitosamente.' });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error en el servidor.');
+    }
+});
+
+app.post('/eliminarCarrito', async (req, res) => {
+  try {
+      const usuarioId = req.session.usuarioId;
+
+      // Llamar al procedimiento almacenado para obtener el carrito_id
+      const resultCarritoId = await connection.execute(
+          `
+          DECLARE
+              v_usuario_id carrito.usuario_id%TYPE := :usuarioId;
+              v_carrito_id carrito.carrito_id%TYPE;
+          BEGIN
+              regresaCarritoID(v_usuario_id, v_carrito_id);
+              :carritoId := v_carrito_id;
+          END;
+          `,
+          {
+              usuarioId: usuarioId,
+              carritoId: { dir: oracledb.BIND_OUT, type: oracledb.NUMBER },
+          }
+      );
+
+      const carritoId = resultCarritoId.outBinds.carritoId;
+
+      // Obtener otros datos del cuerpo de la solicitud
+      const data = req.body;
+
+      // Acceder a los datos recibidos
+      const precio = data.precio;
+      const id = data.id;
+
+      // Llamar al procedimiento almacenado insert_productos_carrito
+      await connection.execute(
+          `
+          BEGIN
+          decrementar_productos_carrito(:carritoId, :id, :precio);
+          END;
+          `,
+          {
+              carritoId: carritoId,
+              id: id,
+              precio: precio,
+          }
+      );
+
+      res.status(200).json({ message: 'Producto agregado al carrito exitosamente.' });
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('Error en el servidor.');
+  }
+});
+
+
   
 
     // Scripts

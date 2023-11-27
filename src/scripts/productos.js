@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
             $.ajax({
                 type: "POST",
-                url: "/registro.html",
+                url: "/agregarCarrito",
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (response) {
