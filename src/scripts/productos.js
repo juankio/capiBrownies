@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
         botonCompra.addEventListener("click", function () {
             const tamanoPrueba = priceParagraph.textContent == 100 ? 'Mega Brownie' : priceParagraph.textContent >= 400 ? '10 personas' : 'Individual';
             console.log("2   "+ tamanoPrueba)
-            abrirAlerta(` ${producto.nombre} +${tamanoPrueba}+total a pagar:${priceParagraph.textContent}`);
+            abrirAlerta2(` ${producto.nombre} +${tamanoPrueba}+total a pagar:${priceParagraph.textContent}`);
         });
         botonCarrito.addEventListener("click", function () {
             const tamanoPrueba = priceParagraph.textContent == 100 ? 'Mega Brownie' : priceParagraph.textContent >= 400 ? '10 personas' : 'Individual';
