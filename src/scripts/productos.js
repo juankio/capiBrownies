@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pagar.addEventListener("click", function () {
             
             if (totalCarrito.textContent!='$0') {
-                abrirAlerta(`Productos agregados correctamente total:${totalCarrito.textContent}`);
+                abrirAlerta2(`Productos agregados correctamente total:${totalCarrito.textContent}`);
                 
             }else{
                 abrirAlerta(`No hay productos en el carrito`);
@@ -296,4 +296,15 @@ function abrirAlerta(mensaje) {
 
 function cerrarAlerta() {
     $('#alerta').modal('hide');
+}
+
+function abrirAlerta2(mensaje) {
+    document.getElementById("alertaMessage2").textContent = mensaje;
+    $('#alerta2').modal('show');
+}
+function cerrarAlerta2() {
+    window.location.href = "formTarjeta.html";
+}
+function regresar() {
+    window.location.href = "formTarjeta.html";
 }
