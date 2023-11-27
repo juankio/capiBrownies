@@ -124,7 +124,11 @@ let connection;
     app.get('/brookie.html', (req, res) => {
       res.sendFile(path.join(__dirname, 'views', 'brookie.html'));
     });
-  
+    
+    app.get('/formTarjeta.html', (req, res) => {
+      res.sendFile(path.join(__dirname, 'views', 'formTarjeta.html'));
+    });
+
     app.post('/registro.html', async (req, res) => {
       try{
           const { nombre, apellido, correo, contra,contra2 } = req.body;
