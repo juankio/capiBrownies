@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="ui dimmer">
                 <div class="content">
                     <div class="center">
-                        // <button class="ui inverted button carrito" id="compra${index}">
+                        <button class="ui inverted button carrito" id="compra${index}">
                             <i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito
                         </button>
                     </div>
@@ -169,13 +169,12 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('>:)',tamano)
         
         botonCompra.addEventListener("click", function () {
-            const tamanoPrueba = priceParagraph.textContent == 100 ? '10 personas' : priceParagraph.textContent >= 400 ? 'Mega' : 'Individual';
+            const tamanoPrueba = priceParagraph.textContent == 100 ? 'Mega Brownie' : priceParagraph.textContent >= 400 ? '10 personas' : 'Individual';
             console.log("2   "+ tamanoPrueba)
-            
-            abrirAlerta(`${producto.imagen} ${producto.nombre} +${tamanoPrueba}+${priceParagraph.textContent}+${producto.tamanos.id}`);
+            abrirAlerta(`${producto.imagen} ${producto.nombre} +${tamanoPrueba}+${priceParagraph.textContent}`);
         });
         botonCarrito.addEventListener("click", function () {
-            const tamanoPrueba = priceParagraph.textContent == 100 ? '10 personas' : priceParagraph.textContent >= 400 ? 'Mega' : 'Individual';
+            const tamanoPrueba = priceParagraph.textContent == 100 ? 'Mega Brownie' : priceParagraph.textContent >= 400 ? '10 personas' : 'Individual';
             enviarDatosAlServidor(priceParagraph.textContent,  producto.id, indexCarrito);
             agregarAlCarrito(producto, tamanoPrueba, priceParagraph.textContent);
         });
