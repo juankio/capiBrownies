@@ -104,9 +104,9 @@ const productos = [
 document.addEventListener("DOMContentLoaded", function () {
     const productosContainer = document.querySelector('.ui.grid.container');
     const carrito = [];
-    const carrito2 = [];
     const listaCarrito = document.getElementById('lista-carrito');
     const totalCarrito = document.getElementById('total');
+    const pagar = document.getElementById('pagar');
 
 
     productos.forEach((producto, index) => {
@@ -153,9 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
         </div>
-    </div>
-    
-            
+    </div>  
         `;
 
         productosContainer.appendChild(card);
@@ -171,13 +169,23 @@ document.addEventListener("DOMContentLoaded", function () {
         botonCompra.addEventListener("click", function () {
             const tamanoPrueba = priceParagraph.textContent == 100 ? 'Mega Brownie' : priceParagraph.textContent >= 400 ? '10 personas' : 'Individual';
             console.log("2   "+ tamanoPrueba)
-            abrirAlerta(`${producto.imagen} ${producto.nombre} +${tamanoPrueba}+${priceParagraph.textContent}`);
+            abrirAlerta(` ${producto.nombre} +${tamanoPrueba}+total a pagar:${priceParagraph.textContent}`);
         });
         botonCarrito.addEventListener("click", function () {
             const tamanoPrueba = priceParagraph.textContent == 100 ? 'Mega Brownie' : priceParagraph.textContent >= 400 ? '10 personas' : 'Individual';
             enviarDatosAlServidor(priceParagraph.textContent,  producto.id, indexCarrito);
             agregarAlCarrito(producto, tamanoPrueba, priceParagraph.textContent);
         });
+        pagar.addEventListener("click", function () {
+            
+            if (totalCarrito.textContent!='$0') {
+                abrirAlerta(`Productos agregados correctamente total:${totalCarrito.textContent}`);
+                
+            }else{
+                abrirAlerta(`No hay productos en el carrito`);
+            }
+        });
+        
     });
     function agregarAlCarrito(producto, tamanoPrueba, precio) {
         const prueba = producto.tamanos.map(tamano => tamano.id)
