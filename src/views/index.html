@@ -28,13 +28,25 @@
                 <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
                     alt="Logo CapiBrownies">
                 <div class="ui inverted icon buttons" style="position: absolute; right: 10px;">
-                    <a class="ui inverted button" href="#">
+                    <a class="ui inverted button" id="user-dropdown">
                         <i class="shopping cart icon"></i>
                     </a>
-                    <a class="ui inverted button" id="user-dropdown">
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content -->
+                        <div class="ui vertical inverted menu">
+                            <div class="item horizontal" bis_skin_checked="1"
+                                style="display: flex; align-items: center;">
+                                <img class="ui avatar image" src="/logo.jpg" style="margin-right: 5px;">
+                                <div class="content" bis_skin_checked="1">
+                                    <p class="head"><b> No te encuentras en la pagina de productos</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="ui inverted button" id="user-dropdown2">
                         <i class="user icon"></i>
                     </a>
-                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content2">
                         <!-- Dropdown content -->
                         <div class="ui vertical inverted menu">
                             <a class="item" href="/usuario.html">Cuenta</a>
@@ -64,8 +76,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="regular.html"><img style="width: 100%; height: 620px; object-fit: cover;" src="/brwnie.jpg"
-                                alt="imagen 1"></a>
+                        <a href="regular.html"><img style="width: 100%; height: 620px; object-fit: cover;"
+                                src="/brwnie.jpg" alt="imagen 1"></a>
                         <div class="image-text">
                             <p><span class="ui big text"><b>Regular</b></span></p>
                         </div>
@@ -85,8 +97,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="nuez.html"><img style="width: 100%; height: 307.3px; object-fit: cover;" src="/galleta.jpg"
-                                    alt="imagen 2"></a>
+                            <a href="nuez.html"><img style="width: 100%; height: 307.3px; object-fit: cover;"
+                                    src="/galleta.jpg" alt="imagen 2"></a>
                             <div class="image-text">
                                 <p><span class="ui big text"><b>Nuez</b></span></p>
                             </div>
@@ -126,8 +138,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="coco.html"><img style="width: 100%; height: 307.3px; object-fit: cover;" src="/coco.jpg"
-                                        alt="imagen 4"></a>
+                                <a href="coco.html"><img style="width: 100%; height: 307.3px; object-fit: cover;"
+                                        src="/coco.jpg" alt="imagen 4"></a>
                                 <div class="image-text">
                                     <p><span class="ui big text"><b>Coco</b></span></p>
                                 </div>
@@ -155,8 +167,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="zebra.html"><img style="width: 100%; height: 307.3px; object-fit: cover;" src="/zebra.jpg"
-                                    alt="imagen 5"></a>
+                            <a href="zebra.html"><img style="width: 100%; height: 307.3px; object-fit: cover;"
+                                    src="/zebra.jpg" alt="imagen 5"></a>
                             <div class="image-text">
                                 <p><span class="ui big text"><b>Zebra</b></span></p>
                             </div>
@@ -176,8 +188,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="oreo.html"><img style="width: 100%; height: 307.3px; object-fit: cover;" src="/oreo.jpg"
-                                        alt="imagen 6"></a>
+                                <a href="oreo.html"><img style="width: 100%; height: 307.3px; object-fit: cover;"
+                                        src="/oreo.jpg" alt="imagen 6"></a>
                                 <div class="image-text">
                                     <p><span class="ui big text"><b>Oreo</b></span></p>
                                 </div>
@@ -218,8 +230,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="brookie.html"><img style="width: 100%; height: 620px; object-fit: cover;" src="/brookie.jpg"
-                                alt="imagen 8"></a>
+                        <a href="brookie.html"><img style="width: 100%; height: 620px; object-fit: cover;"
+                                src="/brookie.jpg" alt="imagen 8"></a>
                         <div class="image-text">
                             <p><span class="ui big text"><b>Brookie</b></span></p>
                         </div>
@@ -284,18 +296,19 @@
 
 
     <script>
+
         $(document).ready(function () {
             $('#despegable').click(function () {
                 $('.ui.sidebar').sidebar('toggle');
             });
-        });
-
-        $(document).ready(function () {
-            $('#hamburger').click(function () {
-                $('.ui.sidebar').sidebar('toggle');
-            });
             $('#user-dropdown').popup({
                 popup: '#user-dropdown-content',
+                on: 'click',
+                position: 'bottom right',
+                exclusive: true,
+            });
+            $('#user-dropdown2').popup({
+                popup: '#user-dropdown-content2',
                 on: 'click',
                 position: 'bottom right',
                 exclusive: true,

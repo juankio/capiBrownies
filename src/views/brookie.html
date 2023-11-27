@@ -23,34 +23,33 @@
     <div class="pusher" style="background-color: #F4F3EE;">
         <div class="ui segment" style="background-color: #4b2d19;">
             <div class="centered-content">
-                <button class="ui inverted icon button" id="hamburger">
+                <button class="ui inverted icon button" id="despegable">
                     <i class="bars icon"></i>
                 </button>
                 <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
                     alt="Logo CapiBrownies">
-                <div class="ui inverted icon buttons">
-                    <button class="ui inverted button" id="miBoton"><i class="shopping cart icon"></i></button>
-                    <div class="ui flowing popup transition hidden">
-                        <div class="ui three column divided center aligned grid">
-                            <div class="column">
-                                <div class="ui segment" style="max-height: 100%; right: 145px; width: 400px;">
-                                    <h2 class="ui header">Carrito
-                                        de Compras</h2>
-                                    <div class="ui raised segment">
-                                        <ul id="lista-carrito" class="ui list relaxed divided">
-                                            <!-- Aquí se mostrarán los productos agregados -->
-                                        </ul>
-                                        <p>Total: <span id="total" class="ui header">$0</span></p>
-                                    </div>
+                <div class="ui inverted icon buttons" style="position: absolute; right: 10px;">
+                    <a class="ui inverted button" href="#" id="user-dropdown">
+                        <i class="shopping cart icon"></i>
+                    </a>
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content -->
+                        <div class="ui vertical inverted menu">
+                            <div class="item horizontal" bis_skin_checked="1"
+                                style="display: flex; align-items: center;">
+                                <img class="ui avatar image" src="/logo.jpg" style="margin-right: 5px;">
+                                <div class="content" bis_skin_checked="1">
+                                    <p class="head"><b> No te encuentras en la pagina de productos </b></p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    <a class="ui inverted button" id="user-dropdown">
+                    <a class="ui inverted button" id="user-dropdown2">
                         <i class="user icon"></i>
                     </a>
-                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
-                        <!-- Dropdown content goes here -->
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content2">
+                        <!-- Dropdown content -->
                         <div class="ui vertical inverted menu">
                             <a class="item" href="/usuario.html">Cuenta</a>
                             <a class="item">Preferencias</a>
@@ -61,100 +60,119 @@
                 </div>
             </div>
         </div>
-        
-        <main class="ui container">
-            <section class="ui segment product-details">
-                <header class="ui container">
-                    <h1 class="ui header" style="margin-bottom: 10px;">Brownie de Brookie</h1>
-                </header>
-                <div class="ui two column grid">
-                    <div class="column">
-                        <div class="product-image">
-                            <img class="ui image" style="max-height: 360px; width: 100%; object-fit: cover;" src="/brookie.jpg" alt="Regular">
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="product-info">
-                            <h2 class="ui header">Descripción</h2>
-                            <p><span class="ui large text">Presentan una capa superior de galleta crujiente sobre un rico brownie de chocolate. Es una experiencia de sabor inigualable.</span></p>
-                            <p>Precio: <strong>$55.00</strong></p>
-                            <br>
-                            <div class="ui button carrito" id="compra${index}">
-                                <i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito
-                            </div>
-                            <br><br>
-                            <button class="ui secondary button" id="add-to-cart">Comprar</button>
-                        </div>
+    </div>
+
+    <main class="ui container">
+        <section class="ui segment product-details">
+            <header class="ui container">
+                <h1 class="ui header" style="margin-bottom: 10px;">Brownie de Brookie</h1>
+            </header>
+            <div class="ui two column grid">
+                <div class="column">
+                    <div class="product-image">
+                        <img class="ui image" style="max-height: 360px; width: 100%; object-fit: cover;"
+                            src="/brookie.jpg" alt="Regular">
                     </div>
                 </div>
-            </section>
-    
-            <section class="ui segment product-reviews">
-                <h2 class="ui header">Reseñas</h2>
-                <ul class="ui list">
-                    <li>
-                        <strong>SweetIndulgence:</strong> Los brownies de esta tienda son una indulgencia dulce que nunca decepciona. Su textura suave y su sabor rico hacen que cada bocado sea un placer.
-                    </li>
-                    <li>
-                        <strong>ChocolateHeaven:</strong> Este lugar es como el cielo del chocolate, y sus brownies son la joya de la corona. ¡Un verdadero paraíso para los amantes del cacao!
-                    </li>
-                </ul>
-            </section>
-        </main>
-    
-        <br>
-        <!-- Footer -->
-        <div class="ui inverted vertical footer segment">
-            <div class="ui container">
-                <div class="ui stackable inverted divided equal height stackable grid">
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Contactos</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">
-                                <i class="envelope icon"></i> carlosk.garza@udem.edu
-                            </a>
-                            <a href="#" class="item">
-                                <i class="phone icon"></i> 1 81 1299 7559
-                            </a>
+                <div class="column">
+                    <div class="product-info">
+                        <h2 class="ui header">Descripción</h2>
+                        <p><span class="ui large text">Presentan una capa superior de galleta crujiente sobre un
+                                rico brownie de chocolate. Es una experiencia de sabor inigualable.</span></p>
+                        <p>Precio: <strong>$55.00</strong></p>
+                        <br>
+                        <div class="ui button carrito" id="compra${index}">
+                            <i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito
                         </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Políticas</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">
-                                <i class="cookie bite icon"></i> Privacidad y cookies
-                            </a>
-                            <a href="#" class="item">
-                                <i class="file alternate icon"></i> Términos y condiciones
-                            </a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Compra presencial</h4>
-                        <div class="ui inverted link list">
-                            <a href="https://linktr.ee/capi_brownies" class="item" target="_blank">
-                                <i class="map marker alternate icon"></i> Ubicaciones</a>
-                            <a href="" class="item">
-                                <i class="calendar alternate icon"></i> Horarios</a>
-                        </div>
-                    </div>
-                    <div class="four wide column">
-                        <h4 class="ui inverted header">Redes Sociales</h4>
-                        <div class="ui inverted link list">
-                            <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
-                                <i class="tiktok icon"></i> Capi_Brownies
-                            </a>
-                            <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
-                                <i class="instagram icon"></i> CapiBrownies
-                            </a>
-                        </div>
+                        <br><br>
+                        <button class="ui secondary button" id="add-to-cart">Comprar</button>
                     </div>
                 </div>
-                <br>
-                <br>
-                <p style="text-align: center;">CapiBrownies &copy; 2023</p>
             </div>
+        </section>
+
+        <section class="ui segment product-reviews">
+            <h2 class="ui header">Reseñas</h2>
+            <div class="ui list" bis_skin_checked="1">
+                <div class="item" bis_skin_checked="1">
+                    <img class="ui avatar image" src="https://fomantic-ui.com/images/avatar/small/elliot.jpg">
+                    <div class="content" bis_skin_checked="1">
+                        <a class="header">SweetIndulgence</a>
+                        <div class="description" bis_skin_checked="1">Los brownies de esta tienda son una
+                            indulgencia dulce que
+                            <b>nunca decepciona.</b> Su textura suave y su sabor rico hacen que cada bocado
+                            sea un
+                            placer.
+                        </div>
+                    </div>
+                </div>
+                <div class="item" bis_skin_checked="1">
+                    <img class="ui avatar image" src="https://fomantic-ui.com/images/avatar2/small/matthew.png">
+                    <div class="content" bis_skin_checked="1">
+                        <a class="header">ChocolateHeaven:</a>
+                        <div class="description" bis_skin_checked="1">Este lugar es como el cielo del chocolate, y
+                            <b>sus brownies son
+                                la joya de la corona.</b> ¡Un verdadero paraíso para los amantes del cacao!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <br>
+    <!-- Footer -->
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Contactos</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">
+                            <i class="envelope icon"></i> carlosk.garza@udem.edu
+                        </a>
+                        <a href="#" class="item">
+                            <i class="phone icon"></i> 1 81 1299 7559
+                        </a>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Políticas</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">
+                            <i class="cookie bite icon"></i> Privacidad y cookies
+                        </a>
+                        <a href="#" class="item">
+                            <i class="file alternate icon"></i> Términos y condiciones
+                        </a>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Compra presencial</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://linktr.ee/capi_brownies" class="item" target="_blank">
+                            <i class="map marker alternate icon"></i> Ubicaciones</a>
+                        <a href="" class="item">
+                            <i class="calendar alternate icon"></i> Horarios</a>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <h4 class="ui inverted header">Redes Sociales</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://www.tiktok.com/@capi_brownies" class="item" target="_blank">
+                            <i class="tiktok icon"></i> Capi_Brownies
+                        </a>
+                        <a href="https://www.instagram.com/capi_brownies" class="item" target="_blank">
+                            <i class="instagram icon"></i> CapiBrownies
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <p style="text-align: center;">CapiBrownies &copy; 2023</p>
         </div>
+    </div>
     </div>
 
 </body>
@@ -168,11 +186,17 @@
 
 <script>
     $(document).ready(function () {
-        $('#hamburger').click(function () {
+        $('#despegable').click(function () {
             $('.ui.sidebar').sidebar('toggle');
         });
         $('#user-dropdown').popup({
             popup: '#user-dropdown-content',
+            on: 'click',
+            position: 'bottom right',
+            exclusive: true,
+        });
+        $('#user-dropdown2').popup({
+            popup: '#user-dropdown-content2',
             on: 'click',
             position: 'bottom right',
             exclusive: true,

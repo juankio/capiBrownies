@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="ui dimmer">
                 <div class="content">
                     <div class="center">
-                        <button class="ui inverted button carrito"  type="submit"  id="compra${index}">
+                        // <button class="ui inverted button carrito" id="compra${index}">
                             <i class="shopping cart icon" style="visibility: visible;"></i>Agregar al carrito
                         </button>
                     </div>
@@ -164,6 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const botonCompra = card.querySelector('.compra');
         const priceParagraph = card.querySelector(`#price${index}`);
         const tamano = card.querySelector(`tamano${index}`);
+        const indexCarrito = card.querySelector(`#compra${index}`);
+
         console.log('>:)',tamano)
         
         botonCompra.addEventListener("click", function () {
@@ -174,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         botonCarrito.addEventListener("click", function () {
             const tamanoPrueba = priceParagraph.textContent == 100 ? '10 personas' : priceParagraph.textContent >= 400 ? 'Mega' : 'Individual';
+            enviarDatosAlServidor(priceParagraph.textContent,  producto.id, indexCarrito);
             agregarAlCarrito(producto, tamanoPrueba, priceParagraph.textContent);
         });
     });
@@ -181,13 +184,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const prueba = producto.tamanos.map(tamano => tamano.id)
         carrito.push({ nombre: producto.nombre, tamanoPrueba, precio, imagen:producto.imagen});
         mostrarCarrito();
-        enviarDatosAlServidor(precio,  producto.id);
     }
-    function enviarDatosAlServidor( precio, id) {
-        $("carrito").submit(function (e) {
+    function enviarDatosAlServidor( precio, id, indexCarrito) {
+        $(indexCarrito).on('click', function (e) {
             e.preventDefault(); // Evitar el comportamiento predeterminado del formulario
-            
-            // Serializa los datos del formulario como JSON
+    
             const data = {
                 precio,
                 id
@@ -199,10 +200,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (response) {
-                    abrirAlerta2("cuenta creada exitosa mente");
+                    abrirAlerta2("Producto agregado al carrito exitosamente");
                 },
                 error: function (error) {
-                    abrirAlerta("Algo salio mal vuelvalo a intentar");
+                    abrirAlerta("Algo salió mal, inténtalo de nuevo");
                 }
             });
         });

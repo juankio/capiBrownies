@@ -29,28 +29,27 @@
                 <img class="ui centered small image" style="height: 70px; object-fit: contain;" src="/logo.jpg"
                     alt="Logo CapiBrownies">
                 <div class="ui inverted icon buttons">
-                    <button class="ui inverted button" id="miBoton"><i class="shopping cart icon"></i></button>
-                    <div class="ui flowing popup transition hidden">
-                        <div class="ui three column divided center aligned grid">
-                            <div class="column">
-                                <div class="ui segment" style="max-height: 100%; right: 145px; width: 400px;">
-                                    <h2 class="ui header">Carrito
-                                        de Compras</h2>
-                                    <div class="ui raised segment">
-                                        <ul id="lista-carrito" class="ui list relaxed divided">
-                                            <!-- Aquí se mostrarán los productos agregados -->
-                                        </ul>
-                                        <p>Total: <span id="total" class="ui header">$0</span></p>
-                                    </div>
+                    <a class="ui inverted button" href="#" id="user-dropdown">
+                        <i class="shopping cart icon"></i>
+                    </a>
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
+                        <!-- Dropdown content -->
+                        <div class="ui vertical inverted menu">
+                            <div class="item horizontal" bis_skin_checked="1"
+                                style="display: flex; align-items: center;">
+                                <img class="ui avatar image" src="/logo.jpg" style="margin-right: 5px;">
+                                <div class="content" bis_skin_checked="1">
+                                    <p class="head"><b>No te encuentras en la pagina de productos</b></p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    <a class="ui inverted button" id="user-dropdown">
+                    <a class="ui inverted button" id="user-dropdown2">
                         <i class="user icon"></i>
                     </a>
-                    <div class="ui flowing popup transition hidden" id="user-dropdown-content">
-                        <!-- Dropdown content goes here -->
+                    <div class="ui flowing popup transition hidden" id="user-dropdown-content2">
+                        <!-- Dropdown content -->
                         <div class="ui vertical inverted menu">
                             <a class="item" href="/usuario.html">Cuenta</a>
                             <a class="item">Preferencias</a>
@@ -61,7 +60,7 @@
                 </div>
             </div>
         </div>
-        
+
         <main class="ui container">
             <section class="ui segment product-details">
                 <header class="ui container">
@@ -70,13 +69,16 @@
                 <div class="ui two column grid">
                     <div class="column">
                         <div class="product-image">
-                            <img class="ui image" style="max-height: 360px; width: 100%; object-fit: cover;" src="/cheesecake.jpg" alt="Regular">
+                            <img class="ui image" style="max-height: 360px; width: 100%; object-fit: cover;"
+                                src="/cheesecake.jpg" alt="Regular">
                         </div>
                     </div>
                     <div class="column">
                         <div class="product-info">
                             <h2 class="ui header">Descripción</h2>
-                            <p><span class="ui large text">Tienen un relleno de queso crema suave y cremoso que se combina a la perfección con el sabor del chocolate. Es como tener dos postres en uno.</span></p>
+                            <p><span class="ui large text">Tienen un relleno de queso crema suave y cremoso que se
+                                    combina a la perfección con el sabor del chocolate. Es como tener dos postres en
+                                    uno.</span></p>
                             <p>Precio: <strong>$50.00</strong></p>
                             <br>
                             <div class="ui button carrito" id="compra${index}">
@@ -88,20 +90,34 @@
                     </div>
                 </div>
             </section>
-    
+
             <section class="ui segment product-reviews">
                 <h2 class="ui header">Reseñas</h2>
-                <ul class="ui list">
-                    <li>
-                        <strong>SweetsExplorer:</strong> Probé estos brownies por curiosidad y ahora soy un explorador de sabores feliz. ¡Cada mordisco es una aventura dulce y deliciosa!
-                    </li>
-                    <li>
-                        <strong>ChocoholicAdventures:</strong> Soy un adicto al chocolate y estos brownies son una parte esencial de mis aventuras chocolatosas. ¡Una experiencia que vale la pena repetir!
-                    </li>
-                </ul>
+                <div class="ui list" bis_skin_checked="1">
+                    <div class="item" bis_skin_checked="1">
+                        <img class="ui avatar image" src="https://fomantic-ui.com/images/avatar/small/veronika.jpg">
+                        <div class="content" bis_skin_checked="1">
+                            <a class="header">SweetsExplorer</a>
+                            <div class="description" bis_skin_checked="1">Probé estos brownies por curiosidad y ahora
+                                soy un explorador de sabores feliz. ¡Cada mordisco es una aventura dulce y
+                                deliciosa!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" bis_skin_checked="1">
+                        <img class="ui avatar image" src="https://fomantic-ui.com/images/avatar2/small/matthew.png">
+                        <div class="content" bis_skin_checked="1">
+                            <a class="header">ChocoholicAdventures:</a>
+                            <div class="description" bis_skin_checked="1">Soy un adicto al chocolate y estos brownies
+                                son una parte
+                                esencial de mis aventuras chocolatosas. ¡Una experiencia que vale la pena repetir!
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
-    
+
         <br>
         <!-- Footer -->
         <div class="ui inverted vertical footer segment">
@@ -173,6 +189,12 @@
         });
         $('#user-dropdown').popup({
             popup: '#user-dropdown-content',
+            on: 'click',
+            position: 'bottom right',
+            exclusive: true,
+        });
+        $('#user-dropdown2').popup({
+            popup: '#user-dropdown-content2',
             on: 'click',
             position: 'bottom right',
             exclusive: true,
